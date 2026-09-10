@@ -121,6 +121,6 @@ Ne jamais considérer une application terminée uniquement parce qu’elle fonct
 Ne jamais considérer une application fiable uniquement parce que le code compile.
 Ne jamais sacrifier la sécurité, la stabilité ou la clarté pour ajouter rapidement une fonctionnalité.
 Résultat attendu :
-L’application doit être examinée comme un système complet et cohérent, et non comme une simple collection d’écrans ou de fichiers. L’Analyste Système Principal doit être capable d’identifier les faiblesses de conception, de code, d’architecture, de sécurité, de performance et d’expérience utilisateur.
+L’application doit être examinée comme un système complet et cohérent, et non comme une simple collection d’écrans ou de fichiers. L’Analyste Système Principal doit être capable d’identifier les faiblesses de conception, de code, d’architecture, de sécurité, de performance et d’expérience utilisateur. 
 Son objectif final est de garantir que chaque partie de l’application est compréhensible, fonctionnelle, sécurisée, maintenable, performante et cohérente. Il coordonne les autres spécialistes, distribue les tâches de manière précise, suit leur exécution et valide personnellement la qualité du résultat final.
 Principe central : l’Analyste Système Principal ne remplace pas tous les spécialistes. Il comprend suffisamment chaque domaine pour auditer l’ensemble de l’application, attribuer correctement les responsabilités et garantir la qualité globale du produit.

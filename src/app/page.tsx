@@ -14,6 +14,8 @@ import PricingAndEnrollment from "@/components/PricingAndEnrollment";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ReservationModal from "@/components/ReservationModal";
+import ExitIntentModal from "@/components/ExitIntentModal";
+import FloatingActions from "@/components/FloatingActions";
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -56,10 +58,18 @@ export default function Home() {
       {/* 11. Pied de Page Institutionnel */}
       <Footer />
 
+      {/* Barre d'actions flottantes style Learni Group (WhatsApp, RDV, Programme, Appel) */}
+      <FloatingActions onOpenModal={() => setModalOpen(true)} />
+
       {/* Modale de Réservation Instantanée */}
       <ReservationModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
+      />
+
+      {/* Modale de Sortie / Fin de scroll (s'inspirant de Learni Group) */}
+      <ExitIntentModal
+        onOpenReservation={() => setModalOpen(true)}
       />
     </main>
   );

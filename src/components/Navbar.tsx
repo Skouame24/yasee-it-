@@ -67,21 +67,55 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
     <header
       ref={navRef}
       style={{ opacity: 0 }}
-      className={`sticky top-0 z-50 w-full transition-all duration-500 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-xl shadow-[0_1px_30px_rgba(0,0,0,0.08)] border-b border-black/5"
-          : "bg-white/70 backdrop-blur-md border-b border-transparent"
-      }`}
+      className="sticky top-0 z-50 w-full"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        <div className="h-[68px] flex items-center justify-between gap-6">
+      {/* ── TOP UTILITY BAR (Learni Style) ── */}
+      <div className="bg-[#0B0E1E] text-white text-[11px] font-medium py-1.5 px-5 sm:px-8 border-b border-white/10 hidden sm:block">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4 text-white/80">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
+              <span>Groupe YASEE IT — Abidjan, Côte d'Ivoire · Expert ISO/IEC 27001</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-5">
+            <button
+              onClick={onOpenModal}
+              className="hover:text-white transition-colors cursor-pointer flex items-center gap-1 text-white/90"
+            >
+              <span>📄 Télécharger le programme officiel</span>
+            </button>
+            <span className="text-white/20">|</span>
+            <a
+              href="https://wa.me/2250700000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#10B981] transition-colors flex items-center gap-1.5 text-white/90"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+              <span>WhatsApp : +225 07 00 00 00</span>
+            </a>
+          </div>
+        </div>
+      </div>
 
-          {/* ── LOGO ── */}
-          <a
-            href="#"
-            className="flex items-center gap-3 shrink-0 group"
-            onClick={() => setActiveLink("")}
-          >
+      {/* ── MAIN NAVBAR ── */}
+      <div
+        className={`w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_25px_rgba(0,0,0,0.06)] border-b border-black/5"
+            : "bg-white/80 backdrop-blur-md border-b border-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="h-[64px] flex items-center justify-between gap-6">
+
+            {/* ── LOGO ── */}
+            <a
+              href="#"
+              className="flex items-center gap-3 shrink-0 group"
+              onClick={() => setActiveLink("")}
+            >
             <div className="relative">
               <Image
                 src="/logo.png"
@@ -95,7 +129,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             {/* Divider + formation label */}
             <div className="hidden md:flex flex-col border-l border-black/8 pl-3 leading-tight">
               <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#080A16]/50">
-                Formation Officielle
+                GROUPE YASEE IT
               </span>
               <span className="text-[11px] font-bold text-[#1900CE] tracking-tight">
                 ISO/IEC 27001 Lead Implementer
@@ -169,6 +203,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
 
         </div>
       </div>
+    </div>
 
       {/* ── MOBILE DRAWER ── */}
       {mobileOpen && (
