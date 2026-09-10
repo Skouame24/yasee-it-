@@ -14,6 +14,8 @@ import {
   ShieldCheckIcon 
 } from "./Icons";
 
+import CountdownTimer from "./CountdownTimer";
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
@@ -95,25 +97,8 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
           </p>
         </div>
 
-        {/* Urgency Alert Bar */}
-        <div className="rounded-2xl bg-[#FFF8E7] border-2 border-[#E8CA72] p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="w-8 h-8 rounded-xl bg-amber-200 text-amber-900 flex items-center justify-center font-bold text-sm shrink-0">
-              ⚡
-            </span>
-            <div>
-              <h4 className="text-xs sm:text-sm font-bold text-[#080A16]">
-                Clôture impérative des inscriptions : 10 Décembre 2026
-              </h4>
-              <p className="text-[11px] text-[#525875]">
-                Nombre de places strictement limité pour garantir le suivi individuel lors des ateliers pratiques.
-              </p>
-            </div>
-          </div>
-          <div className="shrink-0 font-mono text-xs font-bold bg-white px-3 py-1.5 rounded-lg border border-[#E8CA72] text-amber-900 shadow-sm">
-            SESSION : 14 AU 18 DÉC. 2026
-          </div>
-        </div>
+        {/* Compte à Rebours Interactif en Direct */}
+        <CountdownTimer targetDate="2026-12-10T23:59:59" />
 
         {/* Pricing & Form Split Layout */}
         <div ref={contentRef} style={{ opacity: 0 }} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
