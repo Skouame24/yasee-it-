@@ -94,21 +94,21 @@ export default function CertificationPECB() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} id="certification" className="py-20 bg-[#F8F9FD] border-b border-[#E2E4F0]">
+    <section ref={sectionRef} id="certification" className="py-20 bg-white border-b border-[#E2E4F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Header */}
         <div className="max-w-3xl space-y-3">
-          <div ref={badgeRef} style={{ opacity: 0 }} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E4F0] text-[11px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
+          <div ref={badgeRef} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E4F0] text-[11px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
             <span>CHAPITRE 07 : TITRE ET ACCRÉDITATION INTERNATIONALE</span>
           </div>
 
-          <h2 ref={headingRef} style={{ opacity: 0 }} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight leading-tight">
+          <h2 ref={headingRef} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight leading-tight">
             Certification internationale PECB. <br />
             <span className="text-[#1900CE]">Votre passeport mondial en cybersécurité.</span>
           </h2>
 
-          <p ref={subtitleRef} style={{ opacity: 0 }} className="text-sm sm:text-base text-[#525875] font-normal leading-relaxed">
+          <p ref={subtitleRef} className="text-sm sm:text-base text-[#525875] font-normal leading-relaxed">
             Délivrée par <strong className="text-[#080A16]">PECB</strong>, organisme international accrédité selon la norme ISO/IEC 17024 (IAS).
           </p>
         </div>
@@ -116,60 +116,50 @@ export default function CertificationPECB() {
         {/* 2 Structural Cards: Examen + Certificat */}
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          <div style={{ opacity: 0 }} className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#1900CE]/20 shadow-sm space-y-4">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#1900CE]/20 shadow-sm space-y-4">
             <div className="flex items-center gap-3">
               <span className="w-10 h-10 rounded-xl bg-[#EEECFC] flex items-center justify-center text-[#1900CE]">
-                <AwardIcon className="w-5 h-5" />
+                <ShieldCheckIcon className="w-5 h-5 text-[#1900CE]" />
               </span>
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase text-[#1900CE]">
-                  MODALITÉ D'EXAMEN
-                </span>
-                <h3 className="text-xl font-extrabold text-[#080A16]">
-                  Examen 3h à Livre Ouvert (Open Book)
-                </h3>
+                <span className="text-[10px] font-mono font-bold text-[#1900CE] uppercase tracking-wider block">Épreuve Officielle</span>
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#080A16]">Examen PECB Lead Implementer</h3>
               </div>
             </div>
-
             <p className="text-xs sm:text-sm text-[#525875] leading-relaxed">
-              Pas de mémorisation bête : vous avez accès aux normes et aux supports de cours. L'examen évalue votre capacité à résoudre des cas réels d'implémentation et d'audit.
+              Examen officiel de 3 heures en ligne, à livre ouvert (Open Book). Évalue la capacité pratique à concevoir, structurer et déployer un SMSI complet selon les exigences normatives.
             </p>
-
-            <div className="p-3 rounded-xl bg-[#E6FAEB] border border-[#01CE35]/30 text-xs font-bold text-[#01CE35] flex items-center gap-2">
-              <CheckCircleIcon className="w-4 h-4 shrink-0" />
-              <span>Droit de repassage gratuit inclus (Garantie PECB 12 mois)</span>
+            <div className="flex flex-wrap gap-2 text-xs font-mono text-[#525875] pt-1">
+              <span className="bg-white px-3 py-1 rounded-full border border-[#E2E4F0]">Format : En ligne (PECB Exams)</span>
+              <span className="bg-white px-3 py-1 rounded-full border border-[#E2E4F0]">Durée : 3 Heures</span>
+              <span className="bg-[#E6FAEB] text-[#01CE35] font-bold px-3 py-1 rounded-full border border-[#01CE35]/30">Passage inclus</span>
             </div>
           </div>
 
-          <div style={{ opacity: 0 }} className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#1900CE]/20 shadow-sm space-y-4">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#01CE35]/30 shadow-sm space-y-4">
             <div className="flex items-center gap-3">
-              <span className="w-10 h-10 rounded-xl bg-[#080A16] flex items-center justify-center text-[#01CE35]">
-                <ShieldCheckIcon className="w-5 h-5" />
+              <span className="w-10 h-10 rounded-xl bg-[#E6FAEB] flex items-center justify-center text-[#01CE35]">
+                <AwardIcon className="w-5 h-5 text-[#01CE35]" />
               </span>
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase text-[#01CE35]">
-                  VALEUR DU TITRE
-                </span>
-                <h3 className="text-xl font-extrabold text-[#080A16]">
-                  Standard Mondial ISO/IEC 17024
-                </h3>
+                <span className="text-[10px] font-mono font-bold text-[#01CE35] uppercase tracking-wider block">Reconnaissance Mondiale</span>
+                <h3 className="text-lg sm:text-xl font-extrabold text-[#080A16]">Accréditation ISO/IEC 17024</h3>
               </div>
             </div>
-
             <p className="text-xs sm:text-sm text-[#525875] leading-relaxed">
-              Votre certificat est vérifiable publiquement sur le registre mondial PECB. Reconnu par les banques, multinationales, régulateurs et cabinets d'audit internationaux.
+              Certification délivrée par un organisme accrédité IAS. Reconnue par les directions générales, institutions financières et multinationales dans plus de 150 pays.
             </p>
-
-            <div className="p-3 rounded-xl bg-[#F8F9FD] border border-[#E2E4F0] text-xs font-mono font-bold text-[#1900CE] flex items-center justify-between">
-              <span>Organisme accrédité :</span>
-              <span className="bg-white px-2 py-0.5 rounded border border-[#E2E4F0]">IAS Accredited</span>
+            <div className="flex flex-wrap gap-2 text-xs font-mono text-[#525875] pt-1">
+              <span className="bg-white px-3 py-1 rounded-full border border-[#E2E4F0]">Validité internationale</span>
+              <span className="bg-white px-3 py-1 rounded-full border border-[#E2E4F0]">Accréditation IAS</span>
+              <span className="bg-[#EEECFC] text-[#1900CE] font-bold px-3 py-1 rounded-full border border-[#1900CE]/20">Droit de repassage inclus</span>
             </div>
           </div>
 
         </div>
 
         {/* Credentials Hierarchy Table */}
-        <div ref={tableRef} style={{ opacity: 0 }} className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E2E4F0] space-y-4">
+        <div ref={tableRef} className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E2E4F0] space-y-4">
           <span className="block font-mono text-xs font-bold uppercase tracking-wider text-[#080A16]">
             Évolution des titres selon vos années d'expérience :
           </span>
@@ -180,7 +170,7 @@ export default function CertificationPECB() {
                 className={`p-4 rounded-2xl border-2 space-y-2 ${
                   cr.highlight
                     ? "bg-[#1900CE] text-white border-[#1900CE] shadow-lg shadow-[#1900CE]/20"
-                    : "bg-[#F8F9FD] text-[#080A16] border-[#E2E4F0]"
+                    : "bg-white text-[#080A16] border-[#E2E4F0] hover:border-[#1900CE]/40 transition-colors shadow-sm"
                 }`}
               >
                 <div className="flex justify-between items-center">

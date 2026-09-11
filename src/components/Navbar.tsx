@@ -14,11 +14,9 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { href: "#contexte", label: "L'Enjeu" },
-  { href: "#profils", label: "Pour Qui" },
-  { href: "#competences", label: "Méthode" },
-  { href: "#programme", label: "5 Jours" },
-  { href: "#formateurs", label: "Formateurs" },
+  { href: "#pourquoi", label: "Objectifs" },
+  { href: "#programme", label: "Programme" },
+  { href: "#formateurs", label: "Expertise" },
   { href: "#tarifs", label: "Tarifs" },
 ];
 
@@ -66,7 +64,6 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
   return (
     <header
       ref={navRef}
-      style={{ opacity: 0 }}
       className="sticky top-0 z-50 w-full"
     >
       {/* ── TOP UTILITY BAR (Learni Style) ── */}
@@ -182,7 +179,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
               {/* Shimmer effect */}
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
               <span className="relative flex items-center gap-2">
-                Réserver ma place
+                s'inscrire
                 <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
@@ -205,7 +202,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
       </div>
     </div>
 
-      {/* ── MOBILE DRAWER ── */}
+    {/* ── MOBILE DRAWER ── */}
       {mobileOpen && (
         <div
           ref={mobileDrawerRef}
@@ -249,7 +246,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
                 }}
                 className="w-full py-4 rounded-xl bg-[#1900CE] text-white font-bold text-sm uppercase tracking-wider cursor-pointer"
               >
-                Réserver ma place — 800 000 FCFA
+                s'inscrire
               </button>
             </div>
           </div>

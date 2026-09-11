@@ -11,7 +11,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Formation ISO/IEC 27001 Lead Implementer | YASEE IT",
   description:
-    "De la norme à la pratique : pilotez un SMSI qui tient sur le terrain. Formation certifiante officielle de 5 jours animée par deux experts GRC & Cybersécurité en activité. Du 14 au 18 Décembre 2026.",
+    "De la norme à la pratique : pilotez un SMSI qui tient sur le terrain. Formation certifiante officielle de 5 jours animée par deux experts Cybersécurité et GRC en activité. Du 14 au 18 Décembre 2026.",
   keywords: [
     "ISO 27001",
     "Lead Implementer",

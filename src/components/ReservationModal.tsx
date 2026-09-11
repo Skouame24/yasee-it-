@@ -74,10 +74,10 @@ export default function ReservationModal({ isOpen, onClose }: ModalProps) {
                 <span>Session 14 – 18 Décembre 2026</span>
               </div>
               <h3 className="text-2xl font-extrabold text-[#0B0E1E]">
-                Réserver votre place
+                S'inscrire
               </h3>
               <p className="text-xs text-[#5B6178]">
-                ISO/IEC 27001 Lead Implementer • 5 Jours en ligne • 800.000 FCFA
+                ISO/IEC 27001 Lead Implementer • Formation 100% en ligne • 800.000 FCFA
               </p>
             </div>
 
@@ -177,8 +177,8 @@ export default function ReservationModal({ isOpen, onClose }: ModalProps) {
                 </button>
               </div>
 
-              <p className="text-[11px] text-[#5B6178] text-center">
-                Date limite : <strong>10 Décembre 2026</strong>. Nombre de places limité.
+              <p className="text-[#525875]">
+                Date de cloture : <strong>30 Novembre 2026</strong>. Nombre de places : 10.
               </p>
             </form>
           </div>

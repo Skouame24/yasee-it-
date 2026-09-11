@@ -83,16 +83,16 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
         
         {/* Header */}
         <div className="max-w-3xl space-y-3">
-          <div ref={badgeRef} style={{ opacity: 0 }} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F9FD] border border-[#E2E4F0] text-[11px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
-            <span>CHAPITRE 08 : OFFRE OFFICIELLE &amp; INSCRIPTION</span>
+          <div ref={badgeRef} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E4F0] text-[11px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
+            <span>CHAPITRE 08 : OFFRE DE FIN D'ANNÉE</span>
           </div>
 
-          <h2 ref={headingRef} style={{ opacity: 0 }} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight leading-tight">
+          <h2 ref={headingRef} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight leading-tight">
             Prêt à faire certifier votre SMSI ? <br />
             <span className="text-[#1900CE]">Réservez votre place pour Décembre 2026.</span>
           </h2>
 
-          <p ref={subtitleRef} style={{ opacity: 0 }} className="text-sm sm:text-base text-[#525875] font-normal leading-relaxed">
+          <p ref={subtitleRef} className="text-sm sm:text-base text-[#525875] font-normal leading-relaxed">
             Rejoignez une cohorte d'élite conçue pour transformer la norme ISO 27001 en réflexe opérationnel de défense.
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
         <CountdownTimer targetDate="2026-12-10T23:59:59" />
 
         {/* Pricing & Form Split Layout */}
-        <div ref={contentRef} style={{ opacity: 0 }} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left: Value Proposition & Pricing Breakdown */}
           <div className="lg:col-span-6 rounded-3xl border-2 border-[#1900CE] bg-white p-6 sm:p-10 shadow-xl space-y-6">
@@ -109,7 +109,7 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
             <div className="border-b border-[#E2E4F0] pb-5">
               <div className="flex items-center justify-between gap-2">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#1900CE]">
-                  TARIF OFFICIEL UNIQUE TOUT COMPRIS
+                  TARIF PROMOTIONNEL TOUT COMPRIS
                 </span>
                 <span className="bg-[#E6FAEB] text-[#01CE35] text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-[#01CE35]/30">
                   SESSION DÉCEMBRE
@@ -123,6 +123,11 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
                   FCFA TTC
                 </span>
               </div>
+              <div className="mt-1 flex items-baseline gap-2">
+                <span className="text-sm font-semibold text-[#525875] line-through">
+                  Tarif standard : 1.150.000 FCFA
+                </span>
+              </div>
               <p className="text-xs text-[#525875] mt-1">
                 Possibilité de prise en charge entreprise • Convention &amp; Facture sous 24h
               </p>
@@ -131,20 +136,20 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
             {/* Checklist of What's Included */}
             <div className="space-y-3">
               <span className="block text-xs font-mono font-bold uppercase tracking-wider text-[#080A16]">
-                Ce qui est intégralement inclus :
+                Tout ce qui est inclus dans votre inscription :
               </span>
-              <div className="space-y-2">
+              <div className="grid grid-cols-1 gap-2.5">
                 {[
-                  "5 Jours de formation intensive 100% en direct (40 heures)",
-                  "Voucher d'examen officiel PECB ISO/IEC 27001 Lead Implementer",
-                  "Garantie PECB de repassage gratuit de l'examen (12 mois)",
-                  "Support de cours officiel officiel PECB + Normes annotées",
-                  "Modèles de livrables réutilisables (PSSI, SoA 93 contrôles, Matrice Risques)",
-                  "Certificat officiel accrédité IAS ISO/IEC 17024 délivré après validation",
+                  "5 Jours d'animation 100% interactive par des praticiens certifiés",
+                  "Voucher officiel d'examen PECB ISO/IEC 27001 Lead Implementer",
+                  "Accès complet au matériel officiel de cours accrédité PECB (350+ p.)",
+                  "Kit documentaire opérationnel (Modèle PSSI, Grille d'Audit, SoA)",
+                  "Accompagnement intensif aux questions situationnelles d'examen",
+                  "Garantie seconde chance : droit de repassage gratuit pendant 12 mois",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-xs text-[#080A16]">
-                    <CheckCircleIcon className="w-4 h-4 text-[#01CE35] shrink-0 mt-0.5" />
-                    <span className="font-medium">{item}</span>
+                    <span className="text-[#01CE35] font-bold text-sm shrink-0">✓</span>
+                    <span className="leading-snug">{item}</span>
                   </div>
                 ))}
               </div>
@@ -153,16 +158,16 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
             {/* Instant Button */}
             <button
               onClick={onOpenModal}
-              className="w-full py-4 rounded-xl bg-[#1900CE] hover:bg-[#1200A3] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#1900CE]/25 flex items-center justify-center gap-3 transition-all cursor-pointer"
+              className="w-full py-4 rounded-xl bg-[#1900CE] hover:bg-[#1200A3] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#1900CE]/25 flex items-center justify-center gap-3 transition-all cursor-pointer transform hover:-translate-y-0.5"
             >
-              <span>Réserver ma place instantanément</span>
+              <span>s'inscrire maintenant</span>
               <ArrowRightIcon className="w-4 h-4" />
             </button>
 
           </div>
 
           {/* Right: Instant Registration / Quote Form */}
-          <div className="lg:col-span-6 rounded-3xl border border-[#E2E4F0] bg-[#F8F9FD] p-6 sm:p-10 shadow-sm space-y-6">
+          <div className="lg:col-span-6 rounded-3xl border border-[#E2E4F0] bg-white p-6 sm:p-10 shadow-sm space-y-6">
             
             <div>
               <h3 className="text-xl font-extrabold text-[#080A16]">
@@ -257,7 +262,7 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
 
                 <button
                   type="submit"
-                  className="w-full mt-2 py-3.5 rounded-xl bg-[#080A16] hover:bg-[#1900CE] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                  className="w-full mt-2 py-3.5 rounded-xl bg-[#1900CE] hover:bg-[#1200A3] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-md shadow-[#1900CE]/20"
                 >
                   Envoyer ma demande de pré-inscription →
                 </button>

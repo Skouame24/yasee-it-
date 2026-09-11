@@ -54,7 +54,7 @@ const consoleViews = [
     score: "Examen 3h",
     progress: 95,
     desc: "Mise en place des audits internes, simulation d'audit tierce-partie et passage de l'examen officiel PECB.",
-    deliverable: "Grille d'Audit Interne & Titre PECB Lead Implementer",
+    deliverable: "Grille d'Audit Interne & PECB Certified ISO/IEC 27001 Lead Implementer",
     kpi: "Validation Accréditée IAS",
     checks: ["Audit interne (Cl. 9.2)", "Revue de direction (Cl. 9.3)", "Passage Examen PECB (J5)"]
   },
@@ -113,7 +113,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
       
       {/* Live Cyber Telemetry Ribbon */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <div className="bg-[#080A16] text-white rounded-xl py-2 px-4 flex items-center justify-between overflow-hidden shadow-md border border-white/10">
+        <div className="bg-white text-[#080A16] rounded-xl py-2.5 px-4 flex items-center justify-between overflow-hidden shadow-sm border border-[#E2E4F0]">
           <div className="flex items-center gap-3 shrink-0">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#01CE35] opacity-75"></span>
@@ -123,20 +123,20 @@ export default function Hero({ onOpenModal }: HeroProps) {
               SESSION OFFICIELLE ACTIVE
             </span>
           </div>
-          <div className="hidden sm:flex items-center gap-6 font-mono text-[11px] text-slate-300">
+          <div className="hidden sm:flex items-center gap-6 font-mono text-[11px] text-[#525875]">
             <span>📅 14 – 18 Décembre 2026</span>
-            <span className="text-white/20">|</span>
+            <span className="text-[#E2E4F0]">|</span>
             <span>📍 100% En Ligne (Français)</span>
-            <span className="text-white/20">|</span>
-            <span className="text-amber-400 font-bold">⚡ 8 Places Restantes</span>
-            <span className="text-white/20">|</span>
+            <span className="text-[#E2E4F0]">|</span>
+            <span className="text-amber-600 font-bold">⚡ 8 Places Restantes</span>
+            <span className="text-[#E2E4F0]">|</span>
             <span className="text-[#01CE35] font-bold">🎓 Examen PECB Inclus</span>
           </div>
           <button 
             onClick={onOpenModal}
-            className="text-[11px] font-mono font-bold text-white bg-[#1900CE] hover:bg-[#1200A3] px-3 py-1 rounded cursor-pointer transition-colors"
+            className="text-[11px] font-mono font-bold text-white bg-[#1900CE] hover:bg-[#1200A3] px-3.5 py-1.5 rounded-lg cursor-pointer transition-colors shadow-sm"
           >
-            Postuler →
+            S'inscrire →
           </button>
         </div>
       </div>
@@ -153,7 +153,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
             {/* Overline Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F9FD] border border-[#E2E4F0] text-[11px] font-extrabold uppercase tracking-widest text-[#1900CE]">
               <ShieldCheckIcon className="w-4 h-4 text-[#01CE35]" />
-              <span>Formation Certifiante d'Élite • 5 Jours • YASEE IT</span>
+              <span>Formation Certifiante • Programme Officiel • YASEE IT</span>
             </div>
 
             {/* Title & Core Punchline */}
@@ -168,7 +168,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
               </p>
 
               <p className="text-sm sm:text-base text-[#525875] max-w-xl leading-relaxed">
-                Animée par deux experts GRC en activité. Une méthode 100% terrain pour concevoir, 
+                Animée par deux experts Cybersécurité et GRC en activité. Une méthode 100% terrain pour concevoir, 
                 déployer et valider la sécurité de votre organisation avec la certification officielle <strong className="text-[#080A16]">PECB</strong>.
               </p>
             </div>
@@ -176,16 +176,20 @@ export default function Hero({ onOpenModal }: HeroProps) {
             {/* Visual Value Metrics */}
             <div className="grid grid-cols-3 gap-3 pt-1">
               <div className="p-3 rounded-xl bg-[#F8F9FD] border border-[#E2E4F0]">
-                <div className="text-xl font-extrabold text-[#1900CE]">5 Jours</div>
-                <div className="text-[11px] font-semibold text-[#525875]">Matin méthode • Après-midi cas réels</div>
+                <div className="flex flex-col">
+                  <div className="text-xl font-extrabold text-[#1900CE]">Programme</div>
+                  <div className="text-[11px] font-semibold text-[#525875]">100% Pratique &amp; Certifiant</div>
+                </div>
               </div>
               <div className="p-3 rounded-xl bg-[#F8F9FD] border border-[#E2E4F0]">
                 <div className="text-xl font-extrabold text-[#01CE35]">93 Contrôles</div>
                 <div className="text-[11px] font-semibold text-[#525875]">Annexe A 2022 outillée</div>
               </div>
               <div className="p-3 rounded-xl bg-[#F8F9FD] border border-[#E2E4F0]">
-                <div className="text-xl font-extrabold text-[#080A16]">Titre PECB</div>
-                <div className="text-[11px] font-semibold text-[#525875]">Accréditation ISO 17024</div>
+                <div className="flex flex-col">
+                  <div className="text-xl font-extrabold text-[#080A16]">PECB Certified ISO/IEC 27001 Lead Implementer</div>
+                  <div className="text-[11px] font-semibold text-[#525875]">Accrédité ISO 17024</div>
+                </div>
               </div>
             </div>
 
@@ -196,15 +200,14 @@ export default function Hero({ onOpenModal }: HeroProps) {
                   onClick={onOpenModal}
                   className="px-8 py-4 rounded-xl bg-[#1900CE] hover:bg-[#1200A3] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#1900CE]/25 flex items-center justify-center gap-3 transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
                 >
-                  <span>Réserver ma place</span>
-                  <ArrowRightIcon className="w-4 h-4" />
+                  <span>S'inscrire</span>
                 </button>
 
                 <a
                   href="#programme"
                   className="px-6 py-4 rounded-xl border border-[#E2E4F0] hover:border-[#1900CE] bg-white text-[#080A16] font-bold text-sm flex items-center justify-center hover:bg-[#F8F9FD] transition-all"
                 >
-                  <span>Voir le syllabus 5J</span>
+                  <span>Voir le programme</span>
                 </a>
               </div>
 
@@ -213,12 +216,14 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 <div className="flex items-center gap-1.5 font-bold text-[#080A16]">
                   <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
                   <span className="text-base font-extrabold text-[#1900CE]">800 000 FCFA</span>
-                  <span className="bg-[#FFF8E7] text-[#8C6B1C] px-2 py-0.5 rounded text-[11px] font-bold border border-[#E8CA72]">
-                    Tarif officiel tout compris
-                  </span>
                 </div>
-                <span>•</span>
-                <span className="font-semibold text-rose-700">Clôture le 10 Décembre</span>
+                <div className="text-[10px] uppercase font-bold tracking-wider mt-1 text-center">
+                  Tarif promotionnel
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 bg-rose-50 px-3 py-2 border-l border-rose-200">
+                <div className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></div>
+                <span className="font-semibold text-rose-700">Clôture le 30 Novembre</span>
               </div>
             </div>
 
@@ -229,7 +234,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
             <div className="relative rounded-2xl border-2 border-[#1900CE]/30 bg-white shadow-2xl overflow-hidden tech-card">
               
               {/* Console Header Bar */}
-              <div className="bg-[#080A16] text-white px-5 py-3.5 flex items-center justify-between border-b border-white/10">
+              <div className="bg-[#1900CE] text-white px-5 py-3.5 flex items-center justify-between border-b border-[#1200A3]">
                 <div className="flex items-center gap-2.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#01CE35] animate-soft-pulse"></span>
                   <span className="font-mono text-xs font-bold tracking-wider uppercase text-slate-200">
@@ -316,7 +321,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 {/* Action Trigger */}
                 <button
                   onClick={onOpenModal}
-                  className="w-full py-2.5 rounded-xl bg-[#080A16] hover:bg-[#1900CE] text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  className="w-full py-2.5 rounded-xl bg-[#1900CE] hover:bg-[#1200A3] text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-[#1900CE]/20"
                 >
                   <span>Rejoindre cet atelier pratique</span>
                   <span>→</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { Info } from "lucide-react";
 
 interface CountdownTimerProps {
   targetDate?: string; // ISO string or date format
@@ -42,22 +43,20 @@ export default function CountdownTimer({
       <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
         
         {/* Left Side Info */}
-        <div className="space-y-1.5 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[11px] font-mono font-bold uppercase tracking-wider">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
-            </span>
-            <span>Clôture impérative des inscriptions : 10 Décembre 2026</span>
+        <div className="space-y-4 text-center lg:text-left">
+          <div className="flex items-center gap-3 bg-rose-900/40 text-rose-200 px-4 py-2 rounded border border-rose-800/50">
+            <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+            <span>Clôture impérative des inscriptions : 30 Novembre 2026</span>
           </div>
 
           <h4 className="text-base sm:text-lg font-extrabold text-white tracking-tight">
             Session Officielle ISO 27001 : <span className="text-amber-400">14 au 18 Décembre 2026</span>
           </h4>
 
-          <p className="text-xs text-white/70">
-            Nombre de places strictement limité pour garantir le suivi individuel lors des ateliers pratiques.
-          </p>
+          <div className="flex items-start gap-3 bg-blue-900/20 text-blue-100 px-4 py-3 rounded border border-blue-800/30">
+            <Info className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+            Nombre de places : 10 pour garantir le suivi individuel lors des ateliers pratiques.
+          </div>
         </div>
 
         {/* Right Side Live Countdown Digits */}

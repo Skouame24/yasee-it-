@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -53,7 +53,7 @@ const profiles = [
     roleGroup: "Auditeurs & Chefs de Projet",
     headline: "Structurer la démarche d'audit et décrocher la certification.",
     gain: "Vous apprenez à conduire un audit interne rigoureux, préparer la revue de direction et réussir votre examen officiel PECB.",
-    deliverable: "Programme d'audit interne, Fiches de constats & Titre PECB",
+    deliverable: "Programme d'audit interne, Fiches de constats & PECB Certified ISO/IEC 27001 Lead Implementer",
     roles: [
       "Auditeurs Internes & Externes",
       "Responsables Qualité / QHSE",
@@ -65,11 +65,23 @@ const profiles = [
 ];
 
 export default function TargetAudience({ onOpenModal }: TargetAudienceProps) {
+  const [currentProfile, setCurrentProfile] = useState(0);
   const outerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
+
+  const goToProfile = (profileIndex: number) => {
+    if (!outerRef.current) return;
+    const total = profiles.length;
+    const rect = outerRef.current.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const sectionTop = scrollTop + rect.top;
+    const scrollDistance = total * window.innerHeight * 1.2;
+    const targetY = sectionTop + (profileIndex / (total - 1)) * scrollDistance;
+    window.scrollTo({ top: targetY, behavior: "smooth" });
+  };
 
   useGSAP(() => {
     if (!outerRef.current || !stickyRef.current || !slidesRef.current) return;
@@ -93,6 +105,7 @@ export default function TargetAudience({ onOpenModal }: TargetAudienceProps) {
             progressRef.current.style.width = `${self.progress * 100}%`;
           }
           const idx = Math.min(Math.floor(self.progress * total), total - 1);
+          setCurrentProfile(idx);
           if (counterRef.current) {
             counterRef.current.textContent = `VOIE ${String(idx + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
           }
@@ -131,13 +144,31 @@ export default function TargetAudience({ onOpenModal }: TargetAudienceProps) {
         <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none" />
 
         {/* Top bar */}
-        <div className="relative flex items-center justify-between px-8 sm:px-16 pt-10 pb-0">
+        <div className="relative flex items-center justify-between px-8 sm:px-16 pt-8 pb-0">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F8F9FD] border border-[#E2E4F0] text-[10px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
             CHAPITRE 02 — PROFILS CIBLES
           </div>
-          <span ref={counterRef} className="font-mono text-sm font-bold text-[#1900CE]/40">
-            VOIE 01 / 03
-          </span>
+          <div className="flex items-center gap-3">
+            {/* Interactive profile selector tabs */}
+            <div className="hidden md:flex items-center gap-1.5 bg-[#F8F9FD] p-1 rounded-full border border-[#E2E4F0]">
+              {profiles.map((p, pIdx) => (
+                <button
+                  key={p.id}
+                  onClick={() => goToProfile(pIdx)}
+                  className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold transition-all cursor-pointer ${
+                    currentProfile === pIdx
+                      ? "bg-[#1900CE] text-white shadow-sm"
+                      : "text-[#525875] hover:text-[#080A16] hover:bg-white"
+                  }`}
+                >
+                  {p.roleGroup}
+                </button>
+              ))}
+            </div>
+            <span ref={counterRef} className="font-mono text-sm font-bold text-[#1900CE]">
+              VOIE 0{currentProfile + 1} / 0{profiles.length}
+            </span>
+          </div>
         </div>
 
         {/* Static heading */}
@@ -250,10 +281,49 @@ export default function TargetAudience({ onOpenModal }: TargetAudienceProps) {
           ))}
         </div>
 
-        {/* Bottom scroll hint */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
-          <div className="w-px h-6 bg-[#E2E4F0] animate-pulse" />
-          <span className="text-[9px] font-mono text-[#525875]/40 uppercase tracking-widest">Scroll</span>
+        {/* Animated Slide Defilement Indicator with Bouncing Arrow and Controls */}
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 max-w-[90vw]">
+          {/* Prev button */}
+          <button
+            onClick={() => goToProfile(Math.max(0, currentProfile - 1))}
+            disabled={currentProfile === 0}
+            aria-label="Profil précédent"
+            className="w-9 h-9 rounded-full bg-white border border-[#E2E4F0] flex items-center justify-center text-[#1900CE] disabled:opacity-30 hover:bg-[#EEECFC] transition-all cursor-pointer shadow-md disabled:cursor-not-allowed shrink-0"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Animated bouncing arrow pill */}
+          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white shadow-[0_4px_25px_rgba(25,0,206,0.15)] border border-[#1900CE]/25">
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1900CE] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1900CE]"></span>
+            </span>
+            <span className="text-xs font-bold text-[#080A16] tracking-tight whitespace-nowrap">
+              {currentProfile < profiles.length - 1
+                ? `Faites défiler pour le Profil ${currentProfile + 2} (${profiles[currentProfile + 1].roleGroup})`
+                : "Les 3 parcours présentés — Continuez"}
+            </span>
+            <span className="w-6 h-6 rounded-full bg-[#1900CE] text-white flex items-center justify-center animate-bounce shadow-sm shrink-0">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </span>
+          </div>
+
+          {/* Next button */}
+          <button
+            onClick={() => goToProfile(Math.min(profiles.length - 1, currentProfile + 1))}
+            disabled={currentProfile === profiles.length - 1}
+            aria-label="Profil suivant"
+            className="w-9 h-9 rounded-full bg-white border border-[#E2E4F0] flex items-center justify-center text-[#1900CE] disabled:opacity-30 hover:bg-[#EEECFC] transition-all cursor-pointer shadow-md disabled:cursor-not-allowed shrink-0"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
 
       </div>

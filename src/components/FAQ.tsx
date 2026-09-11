@@ -32,8 +32,8 @@ const faqs = [
     a: "La politique officielle de PECB inclut un droit de repassage gratuit de l'examen (second attempt) valable pendant 12 mois. Nos formateurs effectuent également un débriefing individuel pour cibler vos axes de progression.",
   },
   {
-    q: "Comment s'organisent les cours et les travaux pratiques en direct ?",
-    a: "La formation se déroule 100% en ligne en français, du 14 au 18 Décembre 2026, de 9h00 à 17h00 GMT. Les matinées sont consacrées aux cadres normatifs et méthodes ; les après-midis sont dédiés à la manipulation directe de modèles et cas réels d'entreprises.",
+    q: "Quels sont les horaires et le format exact ?",
+    a: "La formation se déroule 100% en ligne en français, du 14 au 18 Décembre 2026. Les matinées sont consacrées aux cadres normatifs et méthodes ; les après-midis sont dédiés à la manipulation directe de modèles et cas réels d'entreprises.",
   },
 ];
 
@@ -87,20 +87,20 @@ export default function FAQ() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} id="faq" className="py-24 sm:py-32 bg-[#F8F9FD] border-b border-[#E2E4F0]">
+    <section ref={sectionRef} id="faq" className="py-24 sm:py-32 bg-white border-b border-[#E2E4F0]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Header */}
         <div ref={headerRef} className="text-center space-y-4">
-          <div style={{ opacity: 0 }} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E4F0] text-[11px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E4F0] text-[11px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
             <span>QUESTIONS FRÉQUENTES</span>
           </div>
 
-          <h2 style={{ opacity: 0 }} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight">
             Foire Aux Questions
           </h2>
 
-          <p style={{ opacity: 0 }} className="text-base text-[#525875] max-w-xl mx-auto">
+          <p className="text-base text-[#525875] max-w-xl mx-auto">
             Toutes les réponses pour préparer sereinement votre inscription et le passage de la certification.
           </p>
         </div>
@@ -112,7 +112,6 @@ export default function FAQ() {
             return (
               <div
                 key={index}
-                style={{ opacity: 0 }}
                 className="rounded-2xl border border-[#E2E4F0] bg-white overflow-hidden shadow-sm transition-all"
               >
                 <button

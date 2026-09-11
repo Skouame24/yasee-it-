@@ -22,8 +22,8 @@ const comparisons = [
   },
   {
     topic: "Formateurs",
-    standard: "Théoriciens ou enseignants généralistes sans expérience de crise cyber.",
-    yasee: "2 Praticiens GRC & Cyber en activité ayant géré des ransomwares réels."
+    standard: "Théoriciens ou enseignants généralistes sans expérience vécue de crise cyber.",
+    yasee: "Équipe d'experts praticiens GRC & Cyber en activité ayant géré des ransomwares réels."
   },
   {
     topic: "Examen & Titre PECB",
@@ -81,37 +81,39 @@ export default function FieldReality() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="py-20 bg-[#080A16] text-white border-b border-white/10 blueprint-grid-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section ref={sectionRef} className="py-20 bg-white text-[#080A16] border-b border-[#E2E4F0] relative overflow-hidden">
+      <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Header */}
         <div className="max-w-3xl space-y-3">
-          <div ref={badgeRef} style={{ opacity: 0 }} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono font-bold tracking-widest text-[#01CE35] uppercase">
+          <div ref={badgeRef} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6FAEB] border border-[#01CE35]/30 text-[11px] font-mono font-bold tracking-widest text-[#01CE35] uppercase">
             <span>CHAPITRE 05 : LA MÉTHODE DE TERRAIN</span>
           </div>
 
-          <h2 ref={headingRef} style={{ opacity: 0 }} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+          <h2 ref={headingRef} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight leading-tight">
             « On ne vient pas réciter la norme. <br />
-            <span className="text-[#01CE35]">On apprend à la faire tenir sur le terrain. »</span>
+            <span className="text-[#1900CE]">On apprend à la faire tenir sur le terrain. »</span>
           </h2>
 
-          <p ref={subtitleRef} style={{ opacity: 0 }} className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+          <p ref={subtitleRef} className="text-sm sm:text-base text-[#525875] font-normal leading-relaxed">
             Pourquoi notre approche forme des praticiens opérationnels immédiatement respectés par les comités de direction et les auditeurs.
           </p>
         </div>
 
         {/* Visual Matrix Comparison — split left/right reveal */}
-        <div className="rounded-3xl border-2 border-white/15 bg-[#0F1226] overflow-hidden shadow-2xl">
+        <div className="rounded-3xl border border-[#E2E4F0] bg-white overflow-hidden shadow-xl shadow-black/[0.03]">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#E2E4F0]">
             
             {/* Left: Classic Boring Course */}
-            <div ref={leftColRef} style={{ opacity: 0 }} className="p-6 sm:p-8 space-y-6 bg-rose-950/20">
+            <div ref={leftColRef} className="p-6 sm:p-8 space-y-6 bg-rose-50/50">
               <div className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-rose-500/20 text-rose-400 font-black flex items-center justify-center text-sm">
+                <span className="w-8 h-8 rounded-full bg-rose-100 text-rose-600 font-black flex items-center justify-center text-sm shadow-sm">
                   ✕
                 </span>
-                <span className="font-mono text-xs font-bold uppercase text-rose-300">
+                <span className="font-mono text-xs font-bold uppercase text-rose-800">
                   Formations ISO 27001 Classiques
                 </span>
               </div>
@@ -119,10 +121,10 @@ export default function FieldReality() {
               <div className="space-y-4">
                 {comparisons.map((c, i) => (
                   <div key={i} className="space-y-1">
-                    <span className="text-[10px] font-mono uppercase text-slate-400 font-bold">
+                    <span className="text-[10px] font-mono uppercase text-slate-500 font-bold">
                       {c.topic}
                     </span>
-                    <p className="text-xs text-rose-200/80 leading-relaxed">
+                    <p className="text-xs text-rose-950/80 leading-relaxed">
                       {c.standard}
                     </p>
                   </div>
@@ -131,12 +133,12 @@ export default function FieldReality() {
             </div>
 
             {/* Right: YASEE IT Industrial Elite Method */}
-            <div ref={rightColRef} style={{ opacity: 0 }} className="p-6 sm:p-8 space-y-6 bg-[#01CE35]/5">
+            <div ref={rightColRef} className="p-6 sm:p-8 space-y-6 bg-white">
               <div className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#01CE35]/20 text-[#01CE35] font-black flex items-center justify-center text-sm">
+                <span className="w-8 h-8 rounded-full bg-[#E6FAEB] text-[#01CE35] font-black flex items-center justify-center text-sm shadow-sm">
                   ✓
                 </span>
-                <span className="font-mono text-xs font-bold uppercase text-[#01CE35]">
+                <span className="font-mono text-xs font-bold uppercase text-[#1900CE]">
                   Méthode YASEE IT — Élite Industrielle
                 </span>
               </div>
@@ -147,7 +149,7 @@ export default function FieldReality() {
                     <span className="text-[10px] font-mono uppercase text-[#01CE35] font-bold">
                       {c.topic}
                     </span>
-                    <p className="text-xs text-emerald-200 font-medium leading-relaxed">
+                    <p className="text-xs text-[#080A16] font-semibold leading-relaxed">
                       {c.yasee}
                     </p>
                   </div>

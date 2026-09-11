@@ -29,7 +29,7 @@ export default function Footer() {
               Formation certifiante ISO/IEC 27001 Lead Implementer animée par des praticiens en activité.
             </p>
             <div className="text-xs text-[#01CE35] font-mono font-semibold">
-              ● Formateurs Certifiés PECB Trainer
+              ● Cabinet &amp; Formateurs Certifiés PECB Trainer
             </div>
           </div>
 
@@ -56,12 +56,12 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#programme" className="hover:text-[#01CE35] transition-colors">
-                  Programme des 5 jours
+                  Programme
                 </a>
               </li>
               <li>
                 <a href="#formateurs" className="hover:text-[#01CE35] transition-colors">
-                  Les experts formateurs
+                  Domaines d'expertise
                 </a>
               </li>
               <li>
@@ -91,7 +91,7 @@ export default function Footer() {
                 <strong className="text-white">Tarif :</strong> 800.000 FCFA
               </p>
               <p className="text-amber-300 font-semibold">
-                ⚠️ Clôture : 10 Décembre 2026
+                ⚠️ Clôture : 30 Novembre 2026
               </p>
             </div>
           </div>

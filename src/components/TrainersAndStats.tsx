@@ -16,54 +16,7 @@ const kpis = [
   { value: 56, suffix: "", label: "Pare-feux Déployés", sub: "Check Point & Fortinet" },
 ];
 
-const trainers = [
-  {
-    initials: "YAE",
-    firstName: "Yapo Aboua",
-    lastName: "Eric",
-    role: "Expert Principal GRC & Cybersécurité",
-    tagline: "50+ projets pilotés. 5 crises ransomware résolues. Des références qui se passent d'introduction.",
-    pecbBadge: "PECB Certified Trainer",
-    clients: ["Orange CI", "Min. Économie Djibouti", "Comptes stratégiques Dubaï"],
-    certifications: [
-      "PECB Certified Trainer",
-      "CISM — ISACA",
-      "PMP — PMI",
-      "PECB Sr. Lead Cybersecurity Mgr",
-      "ISO/IEC 27001 LI & LA",
-      "ISO/IEC 27005 LRM",
-      "ISO 22301 LI",
-      "EBIOS RM",
-    ],
-    highlights: [
-      { icon: "→", text: "50+ projets cybersécurité pilotés en Afrique de l'Ouest" },
-      { icon: "→", text: "5 crises ransomware majeures gérées avec reprise complète d'activité" },
-      { icon: "→", text: "Formateur officiel PECB — comptes stratégiques Orange CI, Ministère de l'Économie de Djibouti" },
-    ],
-  },
-  {
-    initials: "SWO",
-    firstName: "Sylvain W.",
-    lastName: "Ouedraogo",
-    role: "Spécialiste GRC & Sécurité Opérationnelle",
-    tagline: "RSSI virtuel pour 2 institutions financières. 56 pare-feux. 3 000 terminaux sécurisés.",
-    pecbBadge: "PECB Certified Trainer",
-    clients: ["Secteur bancaire", "Assurance", "Santé critique"],
-    certifications: [
-      "PECB Certified Trainer",
-      "ISO/IEC 27001 LI",
-      "ISO/IEC 27005 RM",
-      "CIS Controls",
-      "(ISC)² CC",
-      "GDPR / APDP",
-    ],
-    highlights: [
-      { icon: "→", text: "RSSI virtuel — déploiement SMSI ISO 27001 dans 2 institutions financières" },
-      { icon: "→", text: "56 pare-feux industriels déployés sur des réseaux bancaires & santé critiques" },
-      { icon: "→", text: "3 000 terminaux sécurisés — environnements à haute disponibilité" },
-    ],
-  },
-];
+
 
 export default function TrainersAndStats() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -102,9 +55,9 @@ export default function TrainersAndStats() {
 
     if (trainersGridRef.current) {
       tl.fromTo(
-        Array.from(trainersGridRef.current.children),
-        { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" },
+        trainersGridRef.current,
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
         "-=0.1"
       );
     }
@@ -137,37 +90,34 @@ export default function TrainersAndStats() {
     <section
       ref={sectionRef}
       id="formateurs"
-      className="relative bg-[#080A16] text-white border-b border-white/10 overflow-hidden"
+      className="relative bg-white text-[#080A16] border-b border-[#E2E4F0] overflow-hidden"
     >
-      {/* Background — palette officielle uniquement */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1900CE]/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#01CE35]/8 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute inset-0 blueprint-grid-dark opacity-60 pointer-events-none" />
+      {/* Background — ambiance douce */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1900CE]/[0.03] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#01CE35]/[0.03] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-24 space-y-20">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-24 space-y-16">
 
         {/* ── HEADER ── */}
         <div ref={headerRef} className="max-w-3xl space-y-4">
           <div
-            style={{ opacity: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono font-bold tracking-widest text-[#01CE35] uppercase"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EEECFC] border border-[#1900CE]/20 text-[10px] font-mono font-bold tracking-widest text-[#1900CE] uppercase"
           >
-            CHAPITRE 06 — L'AUTORITÉ DES PRATICIENS
+            CHAPITRE 06 — PÔLE D'EXPERTISE &amp; PRATIQUE DU TERRAIN
           </div>
 
           <h2
-            style={{ opacity: 0 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#080A16] tracking-tight leading-[1.05]"
           >
             Pas des théoriciens.<br />
             <span className="text-[#1900CE]">Des praticiens en activité.</span>
           </h2>
 
           <p
-            style={{ opacity: 0 }}
-            className="text-base text-white/50 leading-relaxed max-w-xl"
+            className="text-base text-[#525875] leading-relaxed max-w-2xl font-normal"
           >
-            Vos deux formateurs gèrent quotidiennement des incidents de sécurité, des audits de certification et des déploiements d'infrastructure critiques.
+            Une équipe d'experts et praticiens de terrain cumulant plus de 15 ans d'expérience opérationnelle, gérant quotidiennement des incidents majeurs, des audits de certification et des déploiements d'infrastructures critiques.
           </p>
         </div>
 
@@ -176,116 +126,244 @@ export default function TrainersAndStats() {
           {kpis.map((k, idx) => (
             <div
               key={idx}
-              style={{ opacity: 0 }}
-              className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#1900CE]/40 transition-colors space-y-2"
+              className="p-6 rounded-2xl bg-white border border-[#E2E4F0] hover:border-[#1900CE]/40 transition-all space-y-2 shadow-sm"
             >
               <span
                 ref={(el) => { kpiCounterRefs.current[idx] = el; }}
-                className="block text-4xl sm:text-5xl font-black font-mono text-white leading-none tracking-tight"
+                className="block text-4xl sm:text-5xl font-black font-mono text-[#080A16] leading-none tracking-tight"
               >
                 0{k.suffix}
               </span>
-              <div className="text-sm font-bold text-white/70">{k.label}</div>
-              <div className="text-[11px] text-white/35 font-mono">{k.sub}</div>
+              <div className="text-sm font-bold text-[#080A16]/80">{k.label}</div>
+              <div className="text-[11px] text-[#525875] font-mono">{k.sub}</div>
             </div>
           ))}
         </div>
 
-        {/* ── TRAINER PROFILES ── */}
-        <div ref={trainersGridRef} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {trainers.map((tr, i) => (
-            <div
-              key={i}
-              style={{ opacity: 0 }}
-              className="relative rounded-3xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-400 overflow-hidden"
-            >
-              {/* Top accent — couleur primaire unique */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#1900CE] via-[#1900CE]/50 to-transparent" />
+        {/* ── UN SEUL ENCART UNIQUE : PÔLE D'EXPERTISE ET FORMATEURS (ANONYMAT TOTAL) ── */}
+        <div
+          ref={trainersGridRef}
+          className="rounded-3xl border border-[#E2E4F0] bg-white p-7 sm:p-10 lg:p-12 shadow-xl shadow-black/[0.03] space-y-10 relative overflow-hidden"
+        >
+          {/* Top Brand Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1900CE] via-[#01CE35] to-[#1900CE]" />
 
-              <div className="p-7 sm:p-8 space-y-6">
+          {/* Encart Header */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-[#E2E4F0]">
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="px-3.5 py-1 rounded-full bg-[#1900CE] text-white font-mono text-xs font-extrabold tracking-wider uppercase">
+                  Pôle d'Expertise &amp; Formateurs Certifiés
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6FAEB] border border-[#01CE35]/30 text-[#01CE35] font-mono text-xs font-bold">
+                  <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
+                  Accrédités PECB Certified Trainer
+                </span>
+                <span className="text-xs font-mono font-bold text-[#525875]">
+                  ● 15+ années d'expérience terrain cumulée
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#080A16] tracking-tight">
+                Domaines d'Expertise &amp; Autorité Opérationnelle
+              </h3>
+              <p className="text-sm sm:text-base text-[#525875] max-w-3xl leading-relaxed">
+                L'animation pédagogique est assurée par des praticiens et experts en activité (RSSI, directeurs cybersécurité et auditeurs) qui conçoivent, pilotent et défendent au quotidien des Systèmes de Management de la Sécurité de l'Information sur des infrastructures critiques en Afrique de l'Ouest et à l'international.
+              </p>
+            </div>
 
-                {/* Identity */}
-                <div className="flex items-start gap-5">
-                  {/* Monogram */}
-                  <div className="w-16 h-16 rounded-2xl bg-[#1900CE]/15 border border-[#1900CE]/30 flex items-center justify-center font-mono text-sm font-extrabold text-[#1900CE] shrink-0 tracking-tight">
-                    {tr.initials}
-                  </div>
+            <div className="shrink-0 flex lg:flex-col items-center lg:items-end gap-1.5 bg-[#F8F9FD] px-5 py-4 rounded-2xl border border-[#E2E4F0] shadow-sm">
+              <span className="text-[10px] font-mono font-bold uppercase text-[#525875]">Accréditation Officielle</span>
+              <span className="text-base font-extrabold text-[#1900CE]">PECB Certified Trainer</span>
+              <span className="text-[11px] font-mono text-[#01CE35] font-bold">Conforme ISO/IEC 17024</span>
+            </div>
+          </div>
 
-                  <div className="space-y-1 pt-0.5">
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-white leading-tight tracking-tight">
-                      {tr.firstName} <span className="text-[#1900CE]">{tr.lastName}</span>
-                    </h3>
-                    <p className="text-[12px] font-semibold text-[#525875]">{tr.role}</p>
-                    <div className="flex items-center gap-1.5 pt-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#01CE35]" />
-                      <span className="text-[10px] font-mono font-bold text-[#01CE35]">
-                        {tr.pecbBadge}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+          {/* 4 Piliers d'Expertise Métier Unifiés */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Pilier 1 */}
+            <div className="p-6 rounded-2xl border border-[#E2E4F0] bg-white hover:border-[#1900CE]/40 transition-all space-y-3.5 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-[#EEECFC] text-[#1900CE] flex items-center justify-center font-mono font-bold text-xs">
+                01
+              </div>
+              <h4 className="font-extrabold text-base text-[#080A16] leading-snug">
+                Gouvernance SMSI &amp; Pilotage DG
+              </h4>
+              <p className="text-xs text-[#525875] leading-relaxed">
+                Clauses 4 à 10 de l'ISO 27001, rédaction de PSSI, alignement stratégique avec la Direction Générale et préparation aux audits de certification.
+              </p>
+              <div className="flex flex-wrap gap-1 pt-1">
+                {["PSSI", "Clauses 4-10", "DdA / SoA", "Audit Tierce-Partie"].map((tag, ti) => (
+                  <span key={ti} className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#F8F9FD] border border-[#E2E4F0] text-[#080A16]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-                {/* Tagline */}
-                <p className="text-[15px] font-semibold text-white/65 leading-snug border-l-2 border-[#1900CE]/50 pl-4">
-                  {tr.tagline}
+            {/* Pilier 2 */}
+            <div className="p-6 rounded-2xl border border-[#E2E4F0] bg-white hover:border-[#1900CE]/40 transition-all space-y-3.5 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-mono font-bold text-xs">
+                02
+              </div>
+              <h4 className="font-extrabold text-base text-[#080A16] leading-snug">
+                Risques &amp; Continuité (PCA)
+              </h4>
+              <p className="text-xs text-[#525875] leading-relaxed">
+                Appréciation outillée des risques via EBIOS RM et ISO 27005, plans de continuité d'activité (ISO 22301) et gestion de crises cyber réelles.
+              </p>
+              <div className="flex flex-wrap gap-1 pt-1">
+                {["EBIOS RM", "ISO 27005", "ISO 22301", "Plan Continuité"].map((tag, ti) => (
+                  <span key={ti} className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#F8F9FD] border border-[#E2E4F0] text-[#080A16]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Pilier 3 */}
+            <div className="p-6 rounded-2xl border border-[#E2E4F0] bg-white hover:border-[#1900CE]/40 transition-all space-y-3.5 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-[#EEECFC] text-[#1900CE] flex items-center justify-center font-mono font-bold text-xs">
+                03
+              </div>
+              <h4 className="font-extrabold text-base text-[#080A16] leading-snug">
+                Sécurité Opérationnelle &amp; Réseaux
+              </h4>
+              <p className="text-xs text-[#525875] leading-relaxed">
+                Déploiement concret des 93 contrôles de l'Annexe A 2022, durcissement des systèmes (CIS Controls) et architecture pare-feux industriels.
+              </p>
+              <div className="flex flex-wrap gap-1 pt-1">
+                {["Annexe A 2022", "NGFW Pare-feux", "CIS Controls", "Cloisonnement"].map((tag, ti) => (
+                  <span key={ti} className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#F8F9FD] border border-[#E2E4F0] text-[#080A16]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Pilier 4 */}
+            <div className="p-6 rounded-2xl border border-[#E2E4F0] bg-white hover:border-[#1900CE]/40 transition-all space-y-3.5 shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-mono font-bold text-xs">
+                04
+              </div>
+              <h4 className="font-extrabold text-base text-[#080A16] leading-snug">
+                Conformité &amp; Résilience
+              </h4>
+              <p className="text-xs text-[#525875] leading-relaxed">
+                Alignement réglementaire Banques Centrales, conformité protection des données (RGPD / APDP) et préparation intensive à l'examen officiel PECB.
+              </p>
+              <div className="flex flex-wrap gap-1 pt-1">
+                {["Banques Centrales", "RGPD / APDP", "Audit Interne", "Examen PECB"].map((tag, ti) => (
+                  <span key={ti} className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-[#F8F9FD] border border-[#E2E4F0] text-[#080A16]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bilan Opérationnel de Terrain & Réalisations Vérifiables */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#E2E4F0] space-y-4 shadow-sm">
+            <div className="flex items-center justify-between flex-wrap gap-2 pb-3 border-b border-[#E2E4F0]">
+              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#1900CE]">
+                Bilan d'Intervention &amp; Faits d'Armes Opérationnels
+              </span>
+              <span className="text-xs font-mono font-bold text-[#01CE35]">
+                ✓ Expérience vécue sur le terrain
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
+              <div className="flex items-start gap-3">
+                <span className="w-5 h-5 rounded-full bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
+                <p className="text-xs text-[#525875] leading-relaxed">
+                  <strong className="text-[#080A16]">50+ projets cybersécurité</strong> et SMSI pilotés avec succès en Afrique de l'Ouest.
                 </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-5 h-5 rounded-full bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
+                <p className="text-xs text-[#525875] leading-relaxed">
+                  <strong className="text-[#080A16]">5 crises ransomware majeures</strong> résolues avec reprise intégrale d'activité sans rançon.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-5 h-5 rounded-full bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
+                <p className="text-xs text-[#525875] leading-relaxed">
+                  <strong className="text-[#080A16]">3 000+ terminaux &amp; serveurs</strong> sécurisés dans des environnements bancaires et critiques.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-5 h-5 rounded-full bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
+                <p className="text-xs text-[#525875] leading-relaxed">
+                  <strong className="text-[#080A16]">56 pare-feux industriels</strong> Check Point &amp; Fortinet déployés en haute disponibilité.
+                </p>
+              </div>
+            </div>
+          </div>
 
-                {/* Highlights */}
-                <div className="space-y-2.5">
-                  {tr.highlights.map((h, hi) => (
-                    <div key={hi} className="flex items-start gap-3 text-sm text-white/55 leading-snug">
-                      <span className="text-[#01CE35] font-bold shrink-0 mt-0.5">{h.icon}</span>
-                      <span>{h.text}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Certifications */}
-                <div className="space-y-2">
-                  <span className="block text-[10px] font-mono font-bold uppercase text-white/20 tracking-widest">
-                    Accréditations & Titres
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {tr.certifications.map((c, ci) => (
-                      <span
-                        key={ci}
-                        className="px-2.5 py-1 rounded-lg bg-[#0F1226] border border-white/10 text-[10px] font-mono font-bold text-white/45"
-                      >
-                        {c}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Clients */}
-                <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-white/8">
-                  <span className="text-[10px] font-mono text-white/20 uppercase tracking-widest">
-                    Références :
-                  </span>
-                  {tr.clients.map((c, ci) => (
-                    <span
-                      key={ci}
-                      className="text-[11px] font-semibold text-white/35 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/8"
-                    >
-                      {c}
+          {/* Accréditations & Secteurs d'Intervention */}
+          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#E2E4F0] space-y-6 shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div className="md:col-span-7 space-y-2.5">
+                <span className="text-[10px] font-mono font-bold uppercase text-[#525875] tracking-widest block">
+                  Accréditations &amp; Titres Détenus par le Pôle Formateurs :
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    "PECB Certified Trainer",
+                    "CISM (ISACA)",
+                    "PMP (PMI)",
+                    "PECB Sr. Lead Cybersecurity Mgr",
+                    "ISO/IEC 27001 Lead Implementer",
+                    "ISO/IEC 27001 Lead Auditor",
+                    "ISO/IEC 27005 Lead Risk Manager",
+                    "ISO 22301 Lead Implementer",
+                    "EBIOS RM Certified",
+                    "CIS Controls Specialist",
+                    "(ISC)² CC",
+                    "Conformité RGPD / APDP",
+                  ].map((cert, ci) => (
+                    <span key={ci} className="px-2.5 py-1 rounded-lg bg-[#EEECFC] text-[#1900CE] border border-[#1900CE]/20 font-mono text-[11px] font-bold">
+                      {cert}
                     </span>
                   ))}
                 </div>
-
               </div>
 
-              {/* Footer */}
-              <div className="border-t border-white/8 px-7 py-3.5 flex items-center justify-between">
-                <span className="text-[11px] font-mono text-white/20">
-                  Session officielle — Décembre 2026
+              <div className="md:col-span-5 space-y-2.5 md:border-l md:border-[#E2E4F0] md:pl-6">
+                <span className="text-[10px] font-mono font-bold uppercase text-[#525875] tracking-widest block">
+                  Secteurs d'Intervention &amp; Références :
                 </span>
-                <span className="text-[10px] font-mono font-bold text-[#01CE35] bg-[#01CE35]/10 border border-[#01CE35]/20 px-2.5 py-1 rounded-full">
-                  PECB Accredited
-                </span>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Secteur Bancaire & Établissements Financiers",
+                    "Opérateurs de Télécommunications",
+                    "Ministères & Institutions d'État",
+                    "Compagnies d'Assurances",
+                    "Infrastructures de Santé Critiques",
+                    "Multinationales Industrielles",
+                  ].map((sec, si) => (
+                    <span key={si} className="px-3 py-1 rounded-full bg-[#F8F9FD] border border-[#E2E4F0] text-xs font-semibold text-[#525875]">
+                      {sec}
+                    </span>
+                  ))}
+                </div>
               </div>
-
             </div>
-          ))}
+          </div>
+
+          {/* Footer of Encart */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 text-xs text-[#525875]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
+              <span>Session officielle dispensée 100% en direct avec interaction continue</span>
+            </div>
+            <span className="font-mono text-[11px] font-bold text-[#1900CE]">
+              Examen officiel de certification PECB inclus
+            </span>
+          </div>
+
         </div>
 
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -77,23 +77,35 @@ const days = [
     badge: "Examen 3h — Livre Ouvert",
     isExamDay: true,
     morning: [
-      "Matinée : Session de révision stratégique et conseils méthodologiques.",
+      "Session de révision stratégique et conseils méthodologiques.",
       "Analyse des questions types et techniques de résolution de cas.",
       "Vérification des accès à la plateforme d'examen sécurisée PECB.",
-      "Après-midi : Passage officiel de l'examen de certification (3 heures).",
+      "Passage officiel de l'examen de certification (3 heures).",
     ],
     workshop: "Passage de l'Examen Officiel PECB en Ligne",
     workshopDesc: "Examen officiel surveillé à livre ouvert. Questions situationnelles basées sur des cas réels d'implémentation.",
-    deliverable: "Titre PECB Lead Implementer — Accréditation ISO 17024",
+    deliverable: "PECB Certified ISO/IEC 27001 Lead Implementer — Accréditation ISO 17024",
   },
 ];
 
 export default function ProgramTimeline() {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const outerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const slidesRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const dayLabelRef = useRef<HTMLSpanElement>(null);
+
+  const goToSlide = (slideIndex: number) => {
+    if (!outerRef.current) return;
+    const total = days.length;
+    const rect = outerRef.current.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const sectionTop = scrollTop + rect.top;
+    const scrollDistance = total * window.innerHeight * 1.2;
+    const targetY = sectionTop + (slideIndex / (total - 1)) * scrollDistance;
+    window.scrollTo({ top: targetY, behavior: "smooth" });
+  };
 
   useGSAP(() => {
     if (!outerRef.current || !stickyRef.current || !slidesRef.current) return;
@@ -117,6 +129,7 @@ export default function ProgramTimeline() {
             progressRef.current.style.width = `${self.progress * 100}%`;
           }
           const idx = Math.min(Math.floor(self.progress * total), total - 1);
+          setCurrentSlide(idx);
           if (dayLabelRef.current) {
             dayLabelRef.current.textContent = `JOUR ${idx + 1} / 5`;
           }
@@ -146,26 +159,43 @@ export default function ProgramTimeline() {
     >
       <div
         ref={stickyRef}
-        className="h-screen w-full flex flex-col bg-[#F8F9FD] overflow-hidden"
+        className="h-screen w-full flex flex-col bg-white overflow-hidden"
         style={{ position: "sticky", top: 0 }}
       >
         <div className="absolute inset-0 blueprint-grid opacity-50 pointer-events-none" />
 
         {/* Top bar */}
-        <div className="relative flex items-center justify-between px-8 sm:px-16 pt-10 pb-0">
+        <div className="relative flex items-center justify-between px-8 sm:px-16 pt-8 pb-0">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#E2E4F0] text-[10px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
-            CHAPITRE 04 — SYLLABUS 5 JOURS
+            CHAPITRE 04 — PROGRAMME DE LA FORMATION
           </div>
-          <span ref={dayLabelRef} className="font-mono text-sm font-bold text-[#1900CE]/40">
-            JOUR 1 / 5
-          </span>
+          <div className="flex items-center gap-3">
+            {/* Clickable Day Pills */}
+            <div className="hidden md:flex items-center gap-1.5 bg-white p-1 rounded-full border border-[#E2E4F0]">
+              {days.map((d, dIdx) => (
+                <button
+                  key={d.day}
+                  onClick={() => goToSlide(dIdx)}
+                  className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold transition-all cursor-pointer ${
+                    currentSlide === dIdx
+                      ? "bg-[#1900CE] text-white shadow-sm"
+                      : "text-[#525875] hover:text-[#080A16] hover:bg-[#F8F9FD]"
+                  }`}
+                >
+                  {d.day}
+                </button>
+              ))}
+            </div>
+            <span ref={dayLabelRef} className="font-mono text-sm font-bold text-[#1900CE]">
+              JOUR {currentSlide + 1} / 5
+            </span>
+          </div>
         </div>
 
         {/* Static heading */}
         <div className="relative px-8 sm:px-16 pt-6 pb-0">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-[#080A16] tracking-tight leading-[1.05]">
-            Programme intensif 5 jours.<br />
-            <span className="text-[#1900CE]">Matin méthode, après-midi terrain.</span>
+            <span className="text-[#1900CE]">Formation intensive 100% pratique.</span>
           </h2>
         </div>
 
@@ -224,7 +254,7 @@ export default function ProgramTimeline() {
                     <div className="flex items-center gap-2 mb-3">
                       <span className="w-3 h-3 rounded-full bg-[#1900CE]/20 border border-[#1900CE]/40 flex-shrink-0" />
                       <span className="text-[10px] font-mono font-bold uppercase text-[#1900CE]">
-                        Matin 9h–13h — Cadres & Méthode
+                        Cadres & Méthode
                       </span>
                     </div>
                     <ul className="space-y-1.5">
@@ -242,7 +272,7 @@ export default function ProgramTimeline() {
                     <div className="flex items-center gap-2 mb-3">
                       <span className="w-3 h-3 rounded-full bg-[#01CE35]/20 border border-[#01CE35]/40 flex-shrink-0" />
                       <span className="text-[10px] font-mono font-bold uppercase text-[#01CE35]">
-                        Après-midi 14h–17h — {d.workshop}
+                        {d.workshop}
                       </span>
                     </div>
                     <p className="text-xs text-[#080A16] leading-relaxed">
@@ -265,10 +295,49 @@ export default function ProgramTimeline() {
           ))}
         </div>
 
-        {/* Scroll hint */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5">
-          <div className="w-px h-6 bg-[#E2E4F0] animate-pulse" />
-          <span className="text-[9px] font-mono text-[#525875]/40 uppercase tracking-widest">Scroll</span>
+        {/* Animated Slide Defilement Indicator with Bouncing Arrow and Controls */}
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 max-w-[90vw]">
+          {/* Prev arrow button */}
+          <button
+            onClick={() => goToSlide(Math.max(0, currentSlide - 1))}
+            disabled={currentSlide === 0}
+            aria-label="Slide précédente"
+            className="w-9 h-9 rounded-full bg-white border border-[#E2E4F0] flex items-center justify-center text-[#1900CE] disabled:opacity-30 hover:bg-[#EEECFC] transition-all cursor-pointer shadow-md disabled:cursor-not-allowed shrink-0"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Animated bouncing arrow pill */}
+          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white shadow-[0_4px_25px_rgba(25,0,206,0.15)] border border-[#1900CE]/25">
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#01CE35] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#01CE35]"></span>
+            </span>
+            <span className="text-xs font-bold text-[#080A16] tracking-tight whitespace-nowrap">
+              {currentSlide < days.length - 1
+                ? `Faites défiler pour voir le Jour ${currentSlide + 2}`
+                : "Programme complet — Continuez vers la suite"}
+            </span>
+            <span className="w-6 h-6 rounded-full bg-[#1900CE] text-white flex items-center justify-center animate-bounce shadow-sm shrink-0">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </span>
+          </div>
+
+          {/* Next arrow button */}
+          <button
+            onClick={() => goToSlide(Math.min(days.length - 1, currentSlide + 1))}
+            disabled={currentSlide === days.length - 1}
+            aria-label="Slide suivante"
+            className="w-9 h-9 rounded-full bg-white border border-[#E2E4F0] flex items-center justify-center text-[#1900CE] disabled:opacity-30 hover:bg-[#EEECFC] transition-all cursor-pointer shadow-md disabled:cursor-not-allowed shrink-0"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
 
       </div>
