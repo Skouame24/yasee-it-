@@ -46,52 +46,7 @@ export default function CertificationPECB() {
   const cardsRef = useRef<HTMLDivElement>(null);
   const tableRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!sectionRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    tl.fromTo(badgeRef.current,
-      { y: -30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.7)" }
-    )
-    .fromTo(headingRef.current,
-      { y: 55, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.85, ease: "power4.out" },
-      "-=0.3"
-    )
-    .fromTo(subtitleRef.current,
-      { y: 25, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.65, ease: "power2.out" },
-      "-=0.5"
-    )
-    // Two cards split open left/right
-    .fromTo(
-      cardsRef.current ? Array.from(cardsRef.current.children) : [],
-      (i: number) => ({ x: i === 0 ? -60 : 60, opacity: 0 }),
-      {
-        x: 0,
-        opacity: 1,
-        duration: 0.75,
-        stagger: 0,
-        ease: "power3.out",
-      },
-      "-=0.3"
-    )
-    // Credential table slides up
-    .fromTo(tableRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.75, ease: "power3.out" },
-      "-=0.3"
-    );
-
-  }, { scope: sectionRef });
+  
 
   return (
     <section ref={sectionRef} id="certification" className="py-20 bg-white border-b border-[#E2E4F0]">
@@ -109,7 +64,7 @@ export default function CertificationPECB() {
           </h2>
 
           <p ref={subtitleRef} className="text-sm sm:text-base text-[#525875] font-normal leading-relaxed">
-            Délivrée par <strong className="text-[#080A16]">PECB</strong>, organisme international accrédité selon la norme ISO/IEC 17024 (IAS).
+            Délivrée par <strong className="text-[#080A16]">PECB</strong>, organisme international.
           </p>
         </div>
 

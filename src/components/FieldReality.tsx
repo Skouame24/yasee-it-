@@ -40,45 +40,7 @@ export default function FieldReality() {
   const leftColRef = useRef<HTMLDivElement>(null);
   const rightColRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!sectionRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Badge and heading
-    tl.fromTo(badgeRef.current,
-      { x: -40, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
-    )
-    .fromTo(headingRef.current,
-      { y: 55, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.85, ease: "power4.out" },
-      "-=0.3"
-    )
-    .fromTo(subtitleRef.current,
-      { y: 25, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.65, ease: "power2.out" },
-      "-=0.5"
-    )
-    // Left column slides from left, right column from right — dramatic split reveal
-    .fromTo(leftColRef.current,
-      { x: -80, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.85, ease: "power3.out" },
-      "-=0.3"
-    )
-    .fromTo(rightColRef.current,
-      { x: 80, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.85, ease: "power3.out" },
-      "<" // simultaneous with left column
-    );
-
-  }, { scope: sectionRef });
+  
 
   return (
     <section ref={sectionRef} className="py-20 bg-white text-[#080A16] border-b border-[#E2E4F0] relative overflow-hidden">

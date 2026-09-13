@@ -43,48 +43,7 @@ export default function FAQ() {
   const headerRef = useRef<HTMLDivElement>(null);
   const faqContainerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!sectionRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Header center rises
-    if (headerRef.current) {
-      tl.fromTo(
-        Array.from(headerRef.current.children),
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: "power3.out",
-        }
-      );
-    }
-
-    // FAQ items stagger up
-    if (faqContainerRef.current) {
-      tl.fromTo(
-        Array.from(faqContainerRef.current.children),
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.55,
-          stagger: 0.1,
-          ease: "power3.out",
-        },
-        "-=0.3"
-      );
-    }
-  }, { scope: sectionRef });
+  
 
   return (
     <section ref={sectionRef} id="faq" className="py-24 sm:py-32 bg-white border-b border-[#E2E4F0]">

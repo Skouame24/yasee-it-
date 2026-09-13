@@ -110,7 +110,7 @@ export default function Footer() {
                 <span>contact@yasee-it.com</span>
               </a>
               <a
-                href="https://wa.me/2250700000000"
+                href="https://wa.me/2250711444588"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-[#01CE35] transition-colors"

@@ -40,37 +40,7 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!sectionRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    tl.fromTo(badgeRef.current,
-      { y: -30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.7)" }
-    )
-    .fromTo(headingRef.current,
-      { y: 55, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.85, ease: "power4.out" },
-      "-=0.3"
-    )
-    .fromTo(subtitleRef.current,
-      { y: 25, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.65, ease: "power2.out" },
-      "-=0.5"
-    )
-    .fromTo(contentRef.current,
-      { y: 60, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.85, ease: "power3.out" },
-      "-=0.3"
-    );
-  }, { scope: sectionRef });
+  
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -273,7 +243,7 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
             <div className="pt-3 border-t border-[#E2E4F0] flex flex-wrap items-center justify-between text-xs text-[#525875] gap-2">
               <span>Besoin d'un devis immédiat ?</span>
               <a
-                href="https://wa.me/2250700000000"
+                href="https://wa.me/2250711444588"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#01CE35] font-bold flex items-center gap-1.5 hover:underline"

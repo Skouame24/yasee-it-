@@ -29,7 +29,7 @@ export default function FloatingActions({ onOpenModal }: FloatingActionsProps) {
 
       {/* 1. WhatsApp : Cercle vert au repos, se déplie en pilule au survol */}
       <a
-        href="https://wa.me/2250700000000?text=Bonjour%20Groupe%20YASEE%20IT%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20ISO%2027001."
+        href="https://wa.me/2250711444588?text=Bonjour%20Groupe%20YASEE%20IT%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations%20ISO%2027001."
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center justify-end h-12 rounded-full bg-[#10B981] hover:bg-[#059669] text-white shadow-xl hover:shadow-2xl transition-all duration-300 ease-out cursor-pointer p-1.5 overflow-hidden"
@@ -58,18 +58,20 @@ export default function FloatingActions({ onOpenModal }: FloatingActionsProps) {
       </button>
 
       {/* 3. Programme PDF (Bleu Vif) : Cercle au repos, se déplie en pilule au survol */}
-      <button
-        onClick={onOpenModal}
+      <a
+        href="https://pecb.com/pdf/brochures/iso-iec-27001-lead-implementer-fr.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
         className="group relative flex items-center justify-end h-12 rounded-full bg-[#1900CE] hover:bg-[#1400A6] text-white shadow-xl hover:shadow-2xl transition-all duration-300 ease-out cursor-pointer p-1.5 overflow-hidden"
-        aria-label="Programme PDF"
+        aria-label="Brochure PDF"
       >
         <span className="max-w-0 opacity-0 group-hover:max-w-xs group-hover:opacity-100 group-hover:px-3 text-xs sm:text-sm font-bold tracking-wide whitespace-nowrap transition-all duration-300 ease-out">
-          Programme PDF
+          Brochure PDF
         </span>
         <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0">
           <SparklesIcon className="w-5 h-5 text-white" />
         </div>
-      </button>
+      </a>
 
       {/* 4. Devis & Réservation (Blanc) : Cercle blanc au repos, se déplie en pilule au survol */}
       <button

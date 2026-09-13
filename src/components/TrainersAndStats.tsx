@@ -25,66 +25,7 @@ export default function TrainersAndStats() {
   const kpiCounterRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const trainersGridRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    if (!sectionRef.current) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 75%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    if (headerRef.current) {
-      tl.fromTo(
-        Array.from(headerRef.current.children),
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: "power3.out" }
-      );
-    }
-
-    if (kpisGridRef.current) {
-      tl.fromTo(
-        Array.from(kpisGridRef.current.children),
-        { y: 40, opacity: 0, scale: 0.92 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.55, stagger: 0.1, ease: "back.out(1.4)" },
-        "-=0.3"
-      );
-    }
-
-    if (trainersGridRef.current) {
-      tl.fromTo(
-        trainersGridRef.current,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-        "-=0.1"
-      );
-    }
-
-    // Animated counters
-    kpiCounterRefs.current.forEach((el, idx) => {
-      if (!el) return;
-      const k = kpis[idx];
-      const obj = { val: 0 };
-      gsap.to(obj, {
-        val: k.value,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-        onUpdate: () => {
-          let v = Math.floor(obj.val).toString();
-          if (k.format) v = Math.floor(obj.val).toLocaleString("fr-FR");
-          el.textContent = v + k.suffix;
-        },
-      });
-    });
-
-  }, { scope: sectionRef });
+  
 
   return (
     <section
@@ -129,10 +70,9 @@ export default function TrainersAndStats() {
               className="p-6 rounded-2xl bg-white border border-[#E2E4F0] hover:border-[#1900CE]/40 transition-all space-y-2 shadow-sm"
             >
               <span
-                ref={(el) => { kpiCounterRefs.current[idx] = el; }}
                 className="block text-4xl sm:text-5xl font-black font-mono text-[#080A16] leading-none tracking-tight"
               >
-                0{k.suffix}
+                {k.format ? k.value.toLocaleString("fr-FR") : k.value}{k.suffix}
               </span>
               <div className="text-sm font-bold text-[#080A16]/80">{k.label}</div>
               <div className="text-[11px] text-[#525875] font-mono">{k.sub}</div>

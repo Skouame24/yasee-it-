@@ -88,7 +88,7 @@ export default function ReservationModal({ isOpen, onClose }: ModalProps) {
                 <span>Inscription rapide par WhatsApp ?</span>
               </div>
               <a
-                href="https://wa.me/2250700000000?text=Bonjour%20YASEE%20IT%2C%20je%20souhaite%20m%27inscrire%20%C3%A0%20la%20formation%20ISO%2027001%20Lead%20Implementer%20de%20d%C3%A9cembre%202026."
+                href="https://wa.me/2250711444588?text=Bonjour%20YASEE%20IT%2C%20je%20souhaite%20m%27inscrire%20%C3%A0%20la%20formation%20ISO%2027001%20Lead%20Implementer%20de%20d%C3%A9cembre%202026."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold shrink-0"
@@ -178,7 +178,7 @@ export default function ReservationModal({ isOpen, onClose }: ModalProps) {
               </div>
 
               <p className="text-[#525875]">
-                Date de cloture : <strong>30 Novembre 2026</strong>. Nombre de places : 10.
+                Date de cloture : <strong>30 Novembre 2026</strong>. Places limitées.
               </p>
             </form>
           </div>

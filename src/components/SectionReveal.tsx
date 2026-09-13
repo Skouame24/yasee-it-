@@ -26,51 +26,10 @@ interface SectionRevealProps {
 
 export default function SectionReveal({
   children,
-  direction = "up",
-  delay = 0,
   className = "",
 }: SectionRevealProps) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  const getFrom = (): gsap.TweenVars => {
-    switch (direction) {
-      case "left":  return { x: -60, opacity: 0 };
-      case "right": return { x: 60,  opacity: 0 };
-      case "fade":  return { opacity: 0 };
-      default:      return { y: 70,  opacity: 0 };
-    }
-  };
-
-  useGSAP(() => {
-    if (!wrapperRef.current) return;
-
-    gsap.fromTo(
-      wrapperRef.current,
-      { ...getFrom(), willChange: "transform, opacity" },
-      {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        duration: 1.1,
-        delay,
-        ease: "power3.out",
-        clearProps: "willChange",
-        scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: "top 88%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-  }, { scope: wrapperRef });
-
-  // Set initial invisible state via inline style so it's set BEFORE paint
   return (
-    <div
-      ref={wrapperRef}
-      className={className}
-      style={{ opacity: 0 }}
-    >
+    <div className={className}>
       {children}
     </div>
   );

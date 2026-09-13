@@ -1,340 +1,127 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { 
-  CalendarIcon, 
-  ClockIcon, 
-  LaptopIcon, 
-  AwardIcon, 
-  ArrowRightIcon, 
-  CheckCircleIcon,
-  ShieldCheckIcon 
-} from "./Icons";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(useGSAP);
-}
+import React from "react";
+import { ShieldCheckIcon } from "./Icons";
 
 interface HeroProps {
   onOpenModal: () => void;
 }
 
-const consoleViews = [
-  {
-    id: "gov",
-    label: "01. Gouvernance",
-    title: "Leadership & Périmètre SMSI",
-    badge: "Clauses 4 à 10",
-    score: "100%",
-    progress: 100,
-    desc: "Cadrage stratégique, cartographie des parties prenantes, engagement formel de la DG et rédaction de la PSSI.",
-    deliverable: "Politique Générale & Définition du Périmètre",
-    kpi: "Alignement Gouvernance Direct",
-    checks: ["Contexte organisationnel (Cl. 4)", "Engagement DG & PSSI (Cl. 5)", "Rôles & Responsabilités (Cl. 5.3)"]
-  },
-  {
-    id: "risk",
-    label: "02. Risques & Mesures",
-    title: "Évaluation & Déclaration d'Applicabilité (DdA)",
-    badge: "Annexe A (93 Mesures)",
-    score: "93 Contrôles",
-    progress: 88,
-    desc: "Application rigoureuse de la méthode d'évaluation (EBIOS RM / ISO 27005) et sélection outillée des 93 contrôles.",
-    deliverable: "Matrice des Risques & Statement of Applicability (SoA)",
-    kpi: "4 Thèmes de Défense",
-    checks: ["Modélisation menaces (ISO 27005)", "Matrice EBIOS RM", "Déclaration d'Applicabilité (SoA)"]
-  },
-  {
-    id: "audit",
-    label: "03. Audit & PECB",
-    title: "Surveillance, Revue & Examen Officiel",
-    badge: "Norme ISO/IEC 17024",
-    score: "Examen 3h",
-    progress: 95,
-    desc: "Mise en place des audits internes, simulation d'audit tierce-partie et passage de l'examen officiel PECB.",
-    deliverable: "Grille d'Audit Interne & PECB Certified ISO/IEC 27001 Lead Implementer",
-    kpi: "Validation Accréditée IAS",
-    checks: ["Audit interne (Cl. 9.2)", "Revue de direction (Cl. 9.3)", "Passage Examen PECB (J5)"]
-  },
-];
-
 export default function Hero({ onOpenModal }: HeroProps) {
-  const [activeTab, setActiveTab] = useState(0);
-  const currentView = consoleViews[activeTab];
-
-  const containerRef = useRef<HTMLElement>(null);
-  const leftColumnRef = useRef<HTMLDivElement>(null);
-  const rightColumnRef = useRef<HTMLDivElement>(null);
-
-  // Auto-switch tabs subtly if user is idle
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTab((prev) => (prev + 1) % consoleViews.length);
-    }, 5500);
-    return () => clearInterval(timer);
-  }, []);
-
-  useGSAP(() => {
-    if (!containerRef.current) return;
-
-    if (leftColumnRef.current) {
-      gsap.fromTo(
-        leftColumnRef.current.children,
-        { opacity: 0, y: 15 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.35,
-          stagger: 0.08,
-          ease: "power2.out",
-        }
-      );
-    }
-
-    if (rightColumnRef.current) {
-      gsap.fromTo(
-        rightColumnRef.current,
-        { opacity: 0, scale: 0.97 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.4,
-          delay: 0.1,
-          ease: "power3.out",
-        }
-      );
-    }
-  }, { scope: containerRef });
-
   return (
-    <section ref={containerRef} className="relative overflow-hidden bg-white border-b border-[#E2E4F0] pt-6 pb-16 lg:pt-10 lg:pb-24 blueprint-grid">
-      
-      {/* Live Cyber Telemetry Ribbon */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <div className="bg-white text-[#080A16] rounded-xl py-2.5 px-4 flex items-center justify-between overflow-hidden shadow-sm border border-[#E2E4F0]">
-          <div className="flex items-center gap-3 shrink-0">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#01CE35] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#01CE35]"></span>
-            </span>
-            <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#01CE35]">
-              SESSION OFFICIELLE ACTIVE
-            </span>
+    <section 
+      className="relative overflow-hidden bg-[#0B0E1E] pt-8 pb-20 lg:pt-16 lg:pb-32 border-b border-black/20"
+      style={{
+        backgroundImage: 'url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      {/* Dark gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0E1E]/90 via-[#0B0E1E]/80 to-[#0B0E1E]/95 backdrop-blur-[2px]" />
+
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+        
+        {/* Live Cyber Telemetry Ribbon */}
+        <div className="w-full max-w-4xl mx-auto mb-10">
+          <div className="bg-white/10 backdrop-blur-md text-white rounded-xl py-2.5 px-5 flex flex-col sm:flex-row items-center justify-between shadow-xl border border-white/20 gap-4 sm:gap-0">
+            <div className="flex items-center gap-3 shrink-0">
+              <span className="flex h-2 w-2 relative">
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#01CE35]"></span>
+              </span>
+              <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#01CE35]">
+                SESSION OFFICIELLE ACTIVE
+              </span>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 font-mono text-[11px] text-white/80">
+              <span>📅 14 – 18 Décembre 2026</span>
+              <span className="hidden sm:inline text-white/30">|</span>
+              <span>📍 100% En Ligne</span>
+              <span className="hidden sm:inline text-white/30">|</span>
+              <span className="text-amber-400 font-bold">⚡ Places limitées</span>
+            </div>
           </div>
-          <div className="hidden sm:flex items-center gap-6 font-mono text-[11px] text-[#525875]">
-            <span>📅 14 – 18 Décembre 2026</span>
-            <span className="text-[#E2E4F0]">|</span>
-            <span>📍 100% En Ligne (Français)</span>
-            <span className="text-[#E2E4F0]">|</span>
-            <span className="text-amber-600 font-bold">⚡ 8 Places Restantes</span>
-            <span className="text-[#E2E4F0]">|</span>
-            <span className="text-[#01CE35] font-bold">🎓 Examen PECB Inclus</span>
-          </div>
-          <button 
-            onClick={onOpenModal}
-            className="text-[11px] font-mono font-bold text-white bg-[#1900CE] hover:bg-[#1200A3] px-3.5 py-1.5 rounded-lg cursor-pointer transition-colors shadow-sm"
-          >
-            S'inscrire →
-          </button>
         </div>
-      </div>
 
-      {/* Subtle radial lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#1900CE]/[0.04] rounded-full blur-3xl pointer-events-none" />
+        {/* Narrative & Titles */}
+        <div className="space-y-8 max-w-4xl mx-auto">
+          {/* Overline Badge */}
+          <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-[11px] font-extrabold uppercase tracking-widest text-white backdrop-blur-sm">
+            <ShieldCheckIcon className="w-4 h-4 text-[#01CE35]" />
+            <span>Formation Certifiante • Programme Officiel • YASEE IT</span>
+          </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
-          {/* Left Column: Direct, High-Impact Narrative */}
-          <div ref={leftColumnRef} className="lg:col-span-7 space-y-6">
-            
-            {/* Overline Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8F9FD] border border-[#E2E4F0] text-[11px] font-extrabold uppercase tracking-widest text-[#1900CE]">
-              <ShieldCheckIcon className="w-4 h-4 text-[#01CE35]" />
-              <span>Formation Certifiante • Programme Officiel • YASEE IT</span>
-            </div>
+          <div className="space-y-5">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
+              ISO/IEC 27001 <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A72FF] to-[#01CE35]">
+                Lead Implementer
+              </span>
+            </h1>
 
-            {/* Title & Core Punchline */}
-            <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#080A16] tracking-tight leading-[1.06]">
-                ISO/IEC 27001 <br />
-                <span className="text-[#1900CE]">Lead Implementer</span>
-              </h1>
+            <p className="text-lg sm:text-xl font-medium text-white/90 tracking-tight max-w-2xl mx-auto">
+              Pilotez un SMSI qui tient face aux attaques et réussit l'audit certificateur.
+            </p>
 
-              <p className="text-lg sm:text-xl font-bold text-[#080A16] tracking-tight">
-                Pilotez un SMSI qui tient face aux attaques et réussit l'audit certificateur.
-              </p>
+            <p className="text-sm sm:text-base text-white/70 max-w-3xl mx-auto leading-relaxed">
+              Animée par deux experts Cybersécurité et GRC en activité. Une méthode 100% terrain pour concevoir,
+              déployer et valider la sécurité de votre organisation avec la certification officielle <strong className="text-white">PECB</strong>.
+            </p>
+          </div>
 
-              <p className="text-sm sm:text-base text-[#525875] max-w-xl leading-relaxed">
-                Animée par deux experts Cybersécurité et GRC en activité. Une méthode 100% terrain pour concevoir, 
-                déployer et valider la sécurité de votre organisation avec la certification officielle <strong className="text-[#080A16]">PECB</strong>.
-              </p>
-            </div>
-
-            {/* Visual Value Metrics */}
-            <div className="grid grid-cols-3 gap-3 pt-1">
-              <div className="p-3 rounded-xl bg-[#F8F9FD] border border-[#E2E4F0]">
-                <div className="flex flex-col">
-                  <div className="text-xl font-extrabold text-[#1900CE]">Programme</div>
-                  <div className="text-[11px] font-semibold text-[#525875]">100% Pratique &amp; Certifiant</div>
-                </div>
+          {/* Visual Value Metrics */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 max-w-3xl mx-auto">
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div className="flex flex-col items-center">
+                <div className="text-xl font-extrabold text-[#4A72FF]">Programme</div>
+                <div className="text-[12px] mt-1 font-semibold text-white/60">100% Pratique &amp; Certifiant</div>
               </div>
-              <div className="p-3 rounded-xl bg-[#F8F9FD] border border-[#E2E4F0]">
+            </div>
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div className="flex flex-col items-center">
                 <div className="text-xl font-extrabold text-[#01CE35]">93 Contrôles</div>
-                <div className="text-[11px] font-semibold text-[#525875]">Annexe A 2022 outillée</div>
-              </div>
-              <div className="p-3 rounded-xl bg-[#F8F9FD] border border-[#E2E4F0]">
-                <div className="flex flex-col">
-                  <div className="text-xl font-extrabold text-[#080A16]">PECB Certified ISO/IEC 27001 Lead Implementer</div>
-                  <div className="text-[11px] font-semibold text-[#525875]">Accrédité ISO 17024</div>
-                </div>
+                <div className="text-[12px] mt-1 font-semibold text-white/60">Annexe A 2022 outillée</div>
               </div>
             </div>
-
-            {/* CTAs with Price Anchor */}
-            <div className="space-y-3 pt-2">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <button
-                  onClick={onOpenModal}
-                  className="px-8 py-4 rounded-xl bg-[#1900CE] hover:bg-[#1200A3] text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#1900CE]/25 flex items-center justify-center gap-3 transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  <span>S'inscrire</span>
-                </button>
-
-                <a
-                  href="#programme"
-                  className="px-6 py-4 rounded-xl border border-[#E2E4F0] hover:border-[#1900CE] bg-white text-[#080A16] font-bold text-sm flex items-center justify-center hover:bg-[#F8F9FD] transition-all"
-                >
-                  <span>Voir le programme</span>
-                </a>
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div className="flex flex-col items-center">
+                <div className="text-xl font-extrabold text-white text-center leading-tight">PECB Certified Lead Implementer</div>
               </div>
+            </div>
+          </div>
 
-              {/* Price Callout */}
-              <div className="flex items-center gap-3 text-xs text-[#525875]">
-                <div className="flex items-center gap-1.5 font-bold text-[#080A16]">
+          {/* CTAs with Price Anchor */}
+          <div className="flex flex-col items-center gap-5 pt-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={onOpenModal}
+                className="w-full sm:w-auto px-10 py-4 rounded-xl bg-[#1900CE] hover:bg-[#1200A3] text-white font-bold text-sm uppercase tracking-wider shadow-[0_0_20px_rgba(25,0,206,0.4)] flex items-center justify-center gap-3 transition-all cursor-pointer transform hover:-translate-y-0.5"
+              >
+                <span>S'inscrire</span>
+              </button>
+
+              <a
+                href="#programme"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl border border-white/20 hover:border-white/50 bg-white/5 backdrop-blur-sm text-white font-bold text-sm flex items-center justify-center hover:bg-white/10 transition-all"
+              >
+                <span>Voir le programme</span>
+              </a>
+            </div>
+
+            {/* Price Callout */}
+            <div className="flex flex-col items-center gap-2 mt-2">
+              <div className="flex items-center justify-center gap-3 text-xs text-white/60">
+                <div className="flex items-center gap-2 font-bold text-white">
                   <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
-                  <span className="text-base font-extrabold text-[#1900CE]">800 000 FCFA</span>
+                  <span className="text-xl font-extrabold text-white">800 000 FCFA</span>
                 </div>
-                <div className="text-[10px] uppercase font-bold tracking-wider mt-1 text-center">
+                <div className="px-2 py-1 rounded bg-white/10 text-[10px] uppercase font-bold tracking-wider">
                   Tarif promotionnel
                 </div>
               </div>
-              <div className="flex items-center gap-1.5 bg-rose-50 px-3 py-2 border-l border-rose-200">
-                <div className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></div>
-                <span className="font-semibold text-rose-700">Clôture le 30 Novembre</span>
+              <div className="text-xs font-semibold text-rose-400">
+                Clôture des inscriptions le 30 Novembre
               </div>
-            </div>
-
-          </div>
-
-          {/* Right Column: Live Interactive SMSI Terminal */}
-          <div ref={rightColumnRef} className="lg:col-span-5">
-            <div className="relative rounded-2xl border-2 border-[#1900CE]/30 bg-white shadow-2xl overflow-hidden tech-card">
-              
-              {/* Console Header Bar */}
-              <div className="bg-[#1900CE] text-white px-5 py-3.5 flex items-center justify-between border-b border-[#1200A3]">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#01CE35] animate-soft-pulse"></span>
-                  <span className="font-mono text-xs font-bold tracking-wider uppercase text-slate-200">
-                    CONSOLE SMSI • ISO 27001:2022
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono text-[#01CE35] uppercase font-bold bg-[#01CE35]/15 px-2.5 py-0.5 rounded border border-[#01CE35]/30">
-                  LIVE CONSOLE
-                </span>
-              </div>
-
-              {/* Console Interactive Selector Tabs */}
-              <div className="flex border-b border-[#E2E4F0] bg-[#F8F9FD]">
-                {consoleViews.map((view, i) => (
-                  <button
-                    key={view.id}
-                    onClick={() => setActiveTab(i)}
-                    className={`flex-1 py-3 px-2 text-center text-xs font-bold transition-all cursor-pointer border-b-2 ${
-                      activeTab === i
-                        ? "border-[#1900CE] text-[#1900CE] bg-white shadow-sm"
-                        : "border-transparent text-[#525875] hover:text-[#080A16]"
-                    }`}
-                  >
-                    {view.label}
-                  </button>
-                ))}
-              </div>
-
-              {/* Console Body Canvas */}
-              <div className="p-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-1 rounded bg-[#EEECFC] text-[#1900CE] font-mono text-xs font-bold border border-[#1900CE]/20">
-                    {currentView.badge}
-                  </span>
-                  <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-[#01CE35]">
-                    <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
-                    <span>{currentView.score}</span>
-                  </div>
-                </div>
-
-                {/* Progress bar visual */}
-                <div className="space-y-1">
-                  <div className="flex justify-between text-[11px] font-mono text-[#525875]">
-                    <span>Maturité du livrable</span>
-                    <span className="font-bold text-[#080A16]">{currentView.kpi}</span>
-                  </div>
-                  <div className="w-full bg-[#E2E4F0] h-2 rounded-full overflow-hidden">
-                    <div 
-                      className="bg-[#1900CE] h-full rounded-full transition-all duration-500 ease-out"
-                      style={{ width: `${currentView.progress}%` }}
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <h3 className="text-base font-extrabold text-[#080A16]">
-                    {currentView.title}
-                  </h3>
-                  <p className="text-xs text-[#525875] leading-relaxed">
-                    {currentView.desc}
-                  </p>
-                </div>
-
-                {/* Live checklist items */}
-                <div className="space-y-1.5 pt-1">
-                  {currentView.checks.map((check, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs font-medium text-[#080A16] bg-[#F8F9FD] px-3 py-1.5 rounded-lg border border-[#E2E4F0]">
-                      <CheckCircleIcon className="w-3.5 h-3.5 text-[#01CE35] shrink-0" />
-                      <span>{check}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Technical Deliverable Output */}
-                <div className="rounded-xl border border-[#1900CE]/30 bg-[#EEECFC]/40 p-3.5 space-y-1">
-                  <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-[#1900CE]">
-                    LIVRABLE CONSTRUIT PAR LE CANDIDAT :
-                  </span>
-                  <div className="text-xs font-bold text-[#080A16]">
-                    🎯 {currentView.deliverable}
-                  </div>
-                </div>
-
-                {/* Action Trigger */}
-                <button
-                  onClick={onOpenModal}
-                  className="w-full py-2.5 rounded-xl bg-[#1900CE] hover:bg-[#1200A3] text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-[#1900CE]/20"
-                >
-                  <span>Rejoindre cet atelier pratique</span>
-                  <span>→</span>
-                </button>
-
-              </div>
-
-              {/* Console Footer */}
-              <div className="bg-[#F8F9FD] border-t border-[#E2E4F0] px-5 py-2.5 flex items-center justify-between text-[11px] font-mono text-[#525875]">
-                <span>Norme : ISO/IEC 27001:2022</span>
-                <span className="text-[#1900CE] font-bold">Cohorte Décembre 2026</span>
-              </div>
-
             </div>
           </div>
 

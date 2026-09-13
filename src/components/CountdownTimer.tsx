@@ -55,7 +55,7 @@ export default function CountdownTimer({
 
           <div className="flex items-start gap-3 bg-blue-900/20 text-blue-100 px-4 py-3 rounded border border-blue-800/30">
             <Info className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-            Nombre de places : 10 pour garantir le suivi individuel lors des ateliers pratiques.
+            Places limitées pour garantir le suivi individuel lors des ateliers pratiques.
           </div>
         </div>
 
