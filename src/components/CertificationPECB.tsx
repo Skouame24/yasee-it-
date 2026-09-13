@@ -1,148 +1,75 @@
 "use client";
 
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { AwardIcon, CheckCircleIcon, ShieldCheckIcon } from "./Icons";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
-
-const credentials = [
-  {
-    title: "PECB Certified Provisional Implementer",
-    exp: "Aucune expérience professionnelle requise",
-    target: "Débutants, jeunes diplômés & reconversions",
-    badge: "Entrée Directe"
-  },
-  {
-    title: "PECB Certified Implementer",
-    exp: "2 ans d'expérience (dont 1 an en sécurité de l'info)",
-    target: "Praticiens sécurité et consultants juniors",
-    badge: "2 Ans Exp"
-  },
-  {
-    title: "PECB Certified Lead Implementer",
-    exp: "5 ans d'expérience (dont 2 ans en pilotage sécurité)",
-    target: "RSSI, DSI, chefs de projet SMSI & consultants seniors",
-    badge: "TITRE PHARE",
-    highlight: true,
-  },
-  {
-    title: "PECB Certified Senior Lead Implementer",
-    exp: "10 ans d'expérience (dont 7 ans en sécurité de l'info)",
-    target: "Directeurs Cybersécurité & experts reconnus",
-    badge: "Expert Sénior"
-  },
-];
+import React from "react";
+import { CheckCircleIcon, ShieldCheckIcon } from "./Icons";
 
 export default function CertificationPECB() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const badgeRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-  const tableRef = useRef<HTMLDivElement>(null);
-
-  
+  const inclusions = [
+    "Formation officielle",
+    "Support de formation",
+    "Examen officiel PECB",
+    "Préparation à l’examen",
+    "Études de cas et exercices",
+    "Modèles et supports opérationnels",
+    "Attestation de formation selon les conditions applicables",
+  ];
 
   return (
-    <section ref={sectionRef} id="certification" className="py-20 bg-white border-b border-[#E2E4F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="certification" className="py-20 md:py-28 bg-white text-slate-900 border-b border-slate-200/80">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="max-w-3xl space-y-3">
-          <div ref={badgeRef} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E4F0] text-[11px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
-            <span>CHAPITRE 07 : TITRE ET ACCRÉDITATION INTERNATIONALE</span>
+        {/* En-tête */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold tracking-widest text-blue-700 uppercase">
+            Accréditation Officielle
           </div>
-
-          <h2 ref={headingRef} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight leading-tight">
-            Certification internationale PECB. <br />
-            <span className="text-[#1900CE]">Votre passeport mondial en cybersécurité.</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Une formation certifiante PECB
           </h2>
+          <div className="w-12 h-1 bg-blue-600 mx-auto rounded-full mt-4" />
+        </div>
 
-          <p ref={subtitleRef} className="text-sm sm:text-base text-[#525875] font-normal leading-relaxed">
-            Délivrée par <strong className="text-[#080A16]">PECB</strong>, organisme international.
+        {/* Texte de présentation */}
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
+            Cette formation prépare à la certification PECB ISO/IEC 27001 Lead Implementer, destinée aux professionnels souhaitant développer leurs compétences pour mettre en œuvre, maintenir et améliorer un Système de Management de la Sécurité de l’Information.
           </p>
         </div>
 
-        {/* 2 Structural Cards: Examen + Certificat */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#1900CE]/20 shadow-sm space-y-4">
-            <div className="flex items-center gap-3">
-              <span className="w-10 h-10 rounded-xl bg-[#EEECFC] flex items-center justify-center text-[#1900CE]">
-                <ShieldCheckIcon className="w-5 h-5 text-[#1900CE]" />
-              </span>
-              <div>
-                <span className="text-[10px] font-mono font-bold text-[#1900CE] uppercase tracking-wider block">Épreuve Officielle</span>
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#080A16]">Examen PECB Lead Implementer</h3>
-              </div>
-            </div>
-            <p className="text-xs sm:text-sm text-[#525875] leading-relaxed">
-              Examen officiel de 3 heures en ligne, à livre ouvert (Open Book). Évalue la capacité pratique à concevoir, structurer et déployer un SMSI complet selon les exigences normatives.
-            </p>
-            <div className="flex flex-wrap gap-2 text-xs font-mono text-[#525875] pt-1">
-              <span className="bg-white px-3 py-1 rounded-full border border-[#E2E4F0]">Format : En ligne (PECB Exams)</span>
-              <span className="bg-white px-3 py-1 rounded-full border border-[#E2E4F0]">Durée : 3 Heures</span>
-              <span className="bg-[#E6FAEB] text-[#01CE35] font-bold px-3 py-1 rounded-full border border-[#01CE35]/30">Passage inclus</span>
-            </div>
-          </div>
+        {/* Bloc Ce qui est inclus */}
+        <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-sm mb-10">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-6 uppercase tracking-wide flex items-center gap-2">
+            <ShieldCheckIcon className="w-5 h-5 text-blue-600" />
+            <span>Ce qui est inclus</span>
+          </h3>
 
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#01CE35]/30 shadow-sm space-y-4">
-            <div className="flex items-center gap-3">
-              <span className="w-10 h-10 rounded-xl bg-[#E6FAEB] flex items-center justify-center text-[#01CE35]">
-                <AwardIcon className="w-5 h-5 text-[#01CE35]" />
-              </span>
-              <div>
-                <span className="text-[10px] font-mono font-bold text-[#01CE35] uppercase tracking-wider block">Reconnaissance Mondiale</span>
-                <h3 className="text-lg sm:text-xl font-extrabold text-[#080A16]">Accréditation ISO/IEC 17024</h3>
-              </div>
-            </div>
-            <p className="text-xs sm:text-sm text-[#525875] leading-relaxed">
-              Certification délivrée par un organisme accrédité IAS. Reconnue par les directions générales, institutions financières et multinationales dans plus de 150 pays.
-            </p>
-            <div className="flex flex-wrap gap-2 text-xs font-mono text-[#525875] pt-1">
-              <span className="bg-white px-3 py-1 rounded-full border border-[#E2E4F0]">Validité internationale</span>
-              <span className="bg-white px-3 py-1 rounded-full border border-[#E2E4F0]">Accréditation IAS</span>
-              <span className="bg-[#EEECFC] text-[#1900CE] font-bold px-3 py-1 rounded-full border border-[#1900CE]/20">Droit de repassage inclus</span>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Credentials Hierarchy Table */}
-        <div ref={tableRef} className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E2E4F0] space-y-4">
-          <span className="block font-mono text-xs font-bold uppercase tracking-wider text-[#080A16]">
-            Évolution des titres selon vos années d'expérience :
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {credentials.map((cr, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {inclusions.map((item, idx) => (
               <div
                 key={idx}
-                className={`p-4 rounded-2xl border-2 space-y-2 ${
-                  cr.highlight
-                    ? "bg-[#1900CE] text-white border-[#1900CE] shadow-lg shadow-[#1900CE]/20"
-                    : "bg-white text-[#080A16] border-[#E2E4F0] hover:border-[#1900CE]/40 transition-colors shadow-sm"
-                }`}
+                className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs flex items-center gap-3"
               >
-                <div className="flex justify-between items-center">
-                  <span className={`text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded ${
-                    cr.highlight ? "bg-white/20 text-white" : "bg-white text-[#1900CE] border border-[#E2E4F0]"
-                  }`}>
-                    {cr.badge}
-                  </span>
-                </div>
-                <h4 className={`text-xs font-extrabold ${cr.highlight ? "text-white" : "text-[#080A16]"}`}>
-                  {cr.title}
-                </h4>
-                <p className={`text-[11px] ${cr.highlight ? "text-white/80" : "text-[#525875]"}`}>
-                  {cr.exp}
-                </p>
+                <CheckCircleIcon className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span className="text-sm sm:text-base font-semibold text-slate-800">
+                  {item}
+                </span>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Encadré Important */}
+        <div className="p-6 sm:p-7 rounded-xl bg-amber-50/80 border border-amber-200/80 flex items-start gap-4">
+          <div className="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5">
+            !
+          </div>
+          <div className="space-y-1">
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-900 block">
+              Important
+            </span>
+            <p className="text-sm sm:text-base text-amber-950 font-medium leading-relaxed">
+              La certification finale est délivrée par PECB selon ses propres critères, conditions et processus de certification.
+            </p>
           </div>
         </div>
 

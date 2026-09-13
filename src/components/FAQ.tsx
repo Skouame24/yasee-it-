@@ -1,95 +1,99 @@
 "use client";
 
-import React, { useState, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import React, { useState } from "react";
 import { ChevronDownIcon } from "./Icons";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
-
-const faqs = [
-  {
-    q: "Quels sont les prérequis réels pour suivre cette formation ?",
-    a: "Des connaissances de base en sécurité de l'information, en informatique ou en gestion de projet sont recommandées. Aucune certification préalable n'est exigée. Le Jour 1 assure une mise à niveau complète sur le vocabulaire et les principes fondamentaux de la famille ISO 27000.",
-  },
-  {
-    q: "Comment se déroule concrètement l'examen officiel de certification PECB ?",
-    a: "L'examen a lieu le 5e jour en ligne (ou ultérieurement à la date de votre choix sur la plateforme officielle PECB Exams). D'une durée de 3 heures, il se déroule à livre ouvert (Open Book) : vous avez accès à l'intégralité du matériel de cours pour traiter des questions situationnelles et scénarisées.",
-  },
-  {
-    q: "Mon entreprise peut-elle financer cette formation ?",
-    a: "Oui, un grand nombre de nos participants sont financés par leur employeur. YASEE IT vous émet un devis proforma sous 24h, une convention de formation professionnelle conforme et une facture avec toutes les mentions fiscales réglementaires.",
-  },
-  {
-    q: "Que se passe-t-il si je n'ai pas encore 5 ans d'expérience dans la sécurité ?",
-    a: "Tous les participants passent le même examen. Si vous le réussissez sans avoir encore 5 ans d'expérience, PECB vous délivre immédiatement le titre officiel « PECB Certified Provisional Implementer ». Dès que vous atteignez le seuil d'expérience requis, votre titre est revalorisé en « Lead Implementer » sans repasser d'examen.",
-  },
-  {
-    q: "Que se passe-t-il en cas d'échec à l'examen de certification ?",
-    a: "La politique officielle de PECB inclut un droit de repassage gratuit de l'examen (second attempt) valable pendant 12 mois. Nos formateurs effectuent également un débriefing individuel pour cibler vos axes de progression.",
-  },
-  {
-    q: "Quels sont les horaires et le format exact ?",
-    a: "La formation se déroule 100% en ligne en français, du 14 au 18 Décembre 2026. Les matinées sont consacrées aux cadres normatifs et méthodes ; les après-midis sont dédiés à la manipulation directe de modèles et cas réels d'entreprises.",
-  },
-];
 
 export default function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const faqContainerRef = useRef<HTMLDivElement>(null);
 
-  
+  const faqs = [
+    {
+      q: "La formation est-elle certifiante ?",
+      a: "La formation prépare à la certification PECB ISO/IEC 27001 Lead Implementer. L’examen officiel est inclus dans le tarif de la formation. La certification finale est délivrée par PECB selon ses critères et conditions.",
+    },
+    {
+      q: "L’examen est-il inclus ?",
+      a: "Oui. L’examen officiel PECB est inclus dans le package de formation, selon les conditions applicables.",
+    },
+    {
+      q: "La formation est-elle adaptée aux débutants ?",
+      a: "La formation s’adresse principalement aux professionnels disposant déjà d’une expérience en systèmes d’information, cybersécurité, gouvernance, risque, audit ou conformité. Une connaissance préalable générale des principes de sécurité de l’information est recommandée.",
+    },
+    {
+      q: "Faut-il être technicien pour suivre la formation ?",
+      a: "Non.\n\nISO 27001 est avant tout une démarche de management de la sécurité de l’information. La formation est particulièrement pertinente pour les profils cybersécurité, GRC, risque, audit, IT management et gouvernance.",
+    },
+    {
+      q: "La formation est-elle en français ?",
+      a: "Oui.",
+    },
+    {
+      q: "La formation est-elle entièrement en ligne ?",
+      a: "Oui. La session est organisée à distance.",
+    },
+    {
+      q: "Que vais-je réellement savoir faire après la formation ?",
+      a: "Vous serez capable de comprendre et structurer une démarche de mise en œuvre d’un SMSI, d’aborder l’appréciation et le traitement des risques, de travailler sur la Déclaration d’Applicabilité, de préparer les éléments nécessaires à l’audit et de piloter l’amélioration du système.",
+    },
+    {
+      q: "Puis-je faire financer la formation par mon entreprise ?",
+      a: "Oui. YASEE IT peut fournir les éléments administratifs nécessaires à une prise en charge entreprise, notamment devis et facture proforma.",
+    },
+    {
+      q: "Et si je souhaite inscrire plusieurs collaborateurs ?",
+      a: "Contactez-nous pour bénéficier d’une proposition entreprise adaptée au nombre de participants.",
+    },
+  ];
+
+  const toggleFAQ = (idx: number) => {
+    setOpenIdx(openIdx === idx ? null : idx);
+  };
 
   return (
-    <section ref={sectionRef} id="faq" className="py-24 sm:py-32 bg-white border-b border-[#E2E4F0]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <section id="faq" className="py-20 md:py-28 bg-slate-50 text-slate-900 border-b border-slate-200/80">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div ref={headerRef} className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E2E4F0] text-[11px] font-mono font-bold tracking-widest text-[#1900CE] uppercase">
-            <span>QUESTIONS FRÉQUENTES</span>
+        {/* En-tête */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold tracking-widest text-blue-700 uppercase">
+            Questions Fréquentes
           </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight">
-            Foire Aux Questions
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Questions fréquentes
           </h2>
-
-          <p className="text-base text-[#525875] max-w-xl mx-auto">
-            Toutes les réponses pour préparer sereinement votre inscription et le passage de la certification.
-          </p>
+          <div className="w-12 h-1 bg-blue-600 mx-auto rounded-full mt-4" />
         </div>
 
-        {/* Accordion */}
-        <div ref={faqContainerRef} className="space-y-4">
-          {faqs.map((faq, index) => {
-            const isOpen = openIdx === index;
+        {/* Liste Accordéon des 9 questions */}
+        <div className="space-y-4">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIdx === idx;
             return (
               <div
-                key={index}
-                className="rounded-2xl border border-[#E2E4F0] bg-white overflow-hidden shadow-sm transition-all"
+                key={idx}
+                className="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden transition-all"
               >
                 <button
-                  onClick={() => setOpenIdx(isOpen ? null : index)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8F9FD]/60 transition-colors"
+                  onClick={() => toggleFAQ(idx)}
+                  className="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/50 transition-colors"
                 >
-                  <span className="font-bold text-base sm:text-lg text-[#080A16]">
+                  <span className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                     {faq.q}
                   </span>
-                  <ChevronDownIcon
-                    className={`w-5 h-5 text-[#1900CE] shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180" : ""
+                  <div
+                    className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 bg-blue-50 text-blue-600" : "text-slate-500"
                     }`}
-                  />
+                  >
+                    <ChevronDownIcon className="w-4 h-4" />
+                  </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 border-t border-[#E2E4F0]/60 text-sm text-[#525875] leading-relaxed">
-                    {faq.a}
+                  <div className="px-6 pb-6 sm:px-7 sm:pb-7 pt-1 border-t border-slate-100">
+                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal whitespace-pre-line">
+                      {faq.a}
+                    </p>
                   </div>
                 )}
               </div>

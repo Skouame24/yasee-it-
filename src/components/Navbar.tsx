@@ -14,10 +14,13 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { href: "#pourquoi", label: "Objectifs" },
+  { href: "#pourquoi-cette-formation", label: "Formation" },
   { href: "#programme", label: "Programme" },
-  { href: "#formateurs", label: "Expertise" },
-  { href: "#tarifs", label: "Tarifs" },
+  { href: "#livrables", label: "Livrables" },
+  { href: "#formateurs", label: "Formateurs" },
+  { href: "#certification", label: "PECB" },
+  { href: "#tarif", label: "Tarif" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export default function Navbar({ onOpenModal }: NavbarProps) {
@@ -203,7 +206,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
                 {/* Shimmer effect */}
                 <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
                 <span className="relative flex items-center gap-2">
-                  s'inscrire
+                  Réserver ma place
                   <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
@@ -268,9 +271,9 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
                   setMobileOpen(false);
                   onOpenModal();
                 }}
-                className="w-full py-4 rounded-xl bg-[#1900CE] text-white font-bold text-sm uppercase tracking-wider cursor-pointer"
+                className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm uppercase tracking-wider cursor-pointer transition-all"
               >
-                s'inscrire
+                Réserver ma place
               </button>
             </div>
           </div>

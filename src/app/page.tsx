@@ -3,18 +3,24 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import CrisisNarrative from "@/components/CrisisNarrative";
+import WhyThisTraining from "@/components/WhyThisTraining";
 import TargetAudience from "@/components/TargetAudience";
-import CompetenciesLoop from "@/components/CompetenciesLoop";
-import ProgramTimeline from "@/components/ProgramTimeline";
-import FieldReality from "@/components/FieldReality";
+import WhyInvest from "@/components/WhyInvest";
+import WhatYouWillLearn from "@/components/WhatYouWillLearn";
+import Deliverables from "@/components/Deliverables";
+import Program from "@/components/Program";
+import Pedagogy from "@/components/Pedagogy";
 import TrainersAndStats from "@/components/TrainersAndStats";
+import WhyYaseeIT from "@/components/WhyYaseeIT";
 import CertificationPECB from "@/components/CertificationPECB";
-import PricingAndEnrollment from "@/components/PricingAndEnrollment";
+import Pricing from "@/components/Pricing";
+import Enterprise from "@/components/Enterprise";
+import LimitedSeats from "@/components/LimitedSeats";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import ReservationModal from "@/components/ReservationModal";
-import ExitIntentModal from "@/components/ExitIntentModal";
+import FinalCTA from "@/components/FinalCTA";
+import EnrollmentSection from "@/components/EnrollmentSection";
 import FloatingActions from "@/components/FloatingActions";
 
 export default function Home() {
@@ -28,48 +34,64 @@ export default function Home() {
       {/* 01. Hero & Interactive SMSI Operating Console */}
       <Hero onOpenModal={() => setModalOpen(true)} />
 
-      {/* 02. Chapitre 1 : Le Constat de Crise (Mode Sombre Immersif) */}
-      <CrisisNarrative />
+      {/* 04. Section : Pourquoi cette formation ? */}
+      <WhyThisTraining />
 
-      {/* 03. Chapitre 2 : Les 3 Profils Cibles */}
-      <TargetAudience onOpenModal={() => setModalOpen(true)} />
+      {/* 05. Section : Ce que vous saurez faire */}
+      <WhatYouWillLearn />
 
-      {/* 04. Chapitre 3 : Le Cycle des 6 Compétences (Stepper Épuré) */}
-      <CompetenciesLoop />
+      {/* 06. Section : Les livrables */}
+      <Deliverables />
 
-      {/* 05. Chapitre 4 : Le Syllabus Officiel des 5 Jours */}
-      <ProgramTimeline />
+      {/* 07. Section : À qui s'adresse la formation ? */}
+      <TargetAudience />
 
-      {/* 06. Chapitre 5 : L'Épreuve du Réel (Méthode de Terrain) */}
-      <FieldReality />
+      {/* 08. Section : Pourquoi investir dans ISO 27001 ? */}
+      <WhyInvest />
 
-      {/* 07. Chapitre 6 : L'Autorité des Praticiens & KPIs */}
+      {/* 09. Section : Programme sur 5 jours */}
+      <Program />
+
+      {/* 10. Section : Approche pédagogique */}
+      <Pedagogy />
+
+      {/* 11. Section : Formateurs */}
       <TrainersAndStats />
 
-      {/* 08. Chapitre 7 : L'Accréditation Internationale PECB */}
+      {/* 12. Section : Pourquoi YASEE IT ? */}
+      <WhyYaseeIT />
+
+      {/* 13. Section : Certification PECB */}
       <CertificationPECB />
 
-      {/* 09. Chapitre 8 : Offre, Tarifs & Pré-Inscription */}
-      <PricingAndEnrollment onOpenModal={() => setModalOpen(true)} />
+      {/* 14. Section : Investissement */}
+      <Pricing onOpenModal={() => setModalOpen(true)} />
 
-      {/* 10. Questions Fréquentes */}
+      {/* 15. Section : Entreprises */}
+      <Enterprise onOpenModal={() => setModalOpen(true)} />
+
+      {/* 16. Section : Places limitées */}
+      <LimitedSeats onOpenModal={() => setModalOpen(true)} />
+
+      {/* 17. Section : FAQ */}
       <FAQ />
 
-      {/* 11. Pied de Page Institutionnel */}
+      {/* 18. Section : Dernier CTA */}
+      <FinalCTA onOpenModal={() => setModalOpen(true)} />
+
+      {/* 22. Section : Formulaire d’inscription directement sur la page */}
+      <EnrollmentSection />
+
+      {/* 19. Section : Footer Institutionnel */}
       <Footer />
 
-      {/* Barre d'actions flottantes style Learni Group (WhatsApp, RDV, Programme, Appel) */}
+      {/* Barre d'actions flottantes (WhatsApp, Contact) */}
       <FloatingActions onOpenModal={() => setModalOpen(true)} />
 
-      {/* Modale de Réservation Instantanée */}
+      {/* 22. Formulaire d’inscription (Modale) */}
       <ReservationModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-      />
-
-      {/* Modale de Sortie / Fin de scroll (s'inspirant de Learni Group) */}
-      <ExitIntentModal
-        onOpenReservation={() => setModalOpen(true)}
       />
     </main>
   );

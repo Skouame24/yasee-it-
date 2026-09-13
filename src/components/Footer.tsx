@@ -6,136 +6,126 @@ import { MailIcon, PhoneIcon, WhatsAppIcon } from "./Icons";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B0E1E] text-white pt-16 pb-12 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <footer className="bg-[#060913] text-white pt-16 pb-12 border-t border-white/10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           
-          {/* Col 1 & 2: Brand & Training Description */}
-          <div className="lg:col-span-2 space-y-5">
+          {/* Col 1 : Identité & Positionnement */}
+          <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="bg-white p-2 rounded-xl inline-block">
                 <Image
                   src="/logo.png"
                   alt="YASEE IT"
-                  width={130}
-                  height={42}
-                  className="h-8 w-auto object-contain"
+                  width={120}
+                  height={38}
+                  className="h-7 w-auto object-contain"
                 />
               </div>
             </div>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-sm leading-relaxed">
-              Cabinet spécialisé en gouvernance, gestion des risques et cybersécurité opérationnelle. 
-              Formation certifiante ISO/IEC 27001 Lead Implementer animée par des praticiens en activité.
+
+            <p className="text-sm text-slate-400 max-w-md leading-relaxed font-medium">
+              Cabinet de conseil &amp; formation en cybersécurité, GRC et management des risques.
             </p>
-            <div className="text-xs text-[#01CE35] font-mono font-semibold">
-              ● Cabinet &amp; Formateurs Certifiés PECB Trainer
+
+            <div className="inline-block px-3 py-1 rounded-full bg-blue-950/80 border border-blue-500/30 text-xs font-semibold text-blue-300">
+              ISO/IEC 27001 Lead Implementer — Décembre 2026
             </div>
           </div>
 
-          {/* Col 3: Navigation rapide */}
-          <div className="space-y-3 text-xs">
-            <h4 className="font-bold text-sm tracking-wider uppercase text-white font-mono">
-              NAVIGATION
+          {/* Col 2 : Navigation rapide */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Navigation
             </h4>
-            <ul className="space-y-2 text-slate-300">
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
               <li>
-                <a href="#pourquoi" className="hover:text-[#01CE35] transition-colors">
-                  Pourquoi ISO 27001 ?
+                <a href="#pourquoi-cette-formation" className="hover:text-blue-400 transition-colors">
+                  Formation
                 </a>
               </li>
               <li>
-                <a href="#profils" className="hover:text-[#01CE35] transition-colors">
-                  Profils concernés
-                </a>
-              </li>
-              <li>
-                <a href="#competences" className="hover:text-[#01CE35] transition-colors">
-                  Ce que vous allez maîtriser
-                </a>
-              </li>
-              <li>
-                <a href="#programme" className="hover:text-[#01CE35] transition-colors">
+                <a href="#programme" className="hover:text-blue-400 transition-colors">
                   Programme
                 </a>
               </li>
               <li>
-                <a href="#formateurs" className="hover:text-[#01CE35] transition-colors">
-                  Domaines d'expertise
+                <a href="#livrables" className="hover:text-blue-400 transition-colors">
+                  Livrables
                 </a>
               </li>
               <li>
-                <a href="#certification" className="hover:text-[#01CE35] transition-colors">
-                  Certification PECB
+                <a href="#formateurs" className="hover:text-blue-400 transition-colors">
+                  Formateurs
+                </a>
+              </li>
+              <li>
+                <a href="#certification" className="hover:text-blue-400 transition-colors">
+                  PECB
+                </a>
+              </li>
+              <li>
+                <a href="#tarif" className="hover:text-blue-400 transition-colors">
+                  Tarif
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-blue-400 transition-colors">
+                  FAQ
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Session Dates & Tarifs */}
-          <div className="space-y-3 text-xs">
-            <h4 className="font-bold text-sm tracking-wider uppercase text-white font-mono">
-              SESSION OFFICIELLE
+          {/* Col 3 : Contact officiel */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Contact &amp; Échanges
             </h4>
-            <div className="space-y-2 text-slate-300">
-              <p>
-                <strong className="text-white">Dates :</strong> 14 – 18 Décembre 2026
-              </p>
-              <p>
-                <strong className="text-white">Format :</strong> 100% En Ligne (Distanciel)
-              </p>
-              <p>
-                <strong className="text-white">Langue :</strong> Français
-              </p>
-              <p>
-                <strong className="text-white">Tarif :</strong> 800.000 FCFA
-              </p>
-              <p className="text-amber-300 font-semibold">
-                ⚠️ Clôture : 30 Novembre 2026
-              </p>
-            </div>
-          </div>
-
-          {/* Col 5: Contact Direct */}
-          <div className="space-y-3 text-xs">
-            <h4 className="font-bold text-sm tracking-wider uppercase text-white font-mono">
-              CONTACT &amp; SUPPORT
-            </h4>
-            <div className="space-y-3 text-slate-300">
-              <a
-                href="mailto:contact@yasee-it.com"
-                className="flex items-center gap-2 hover:text-[#01CE35] transition-colors"
-              >
-                <MailIcon className="w-4 h-4 text-[#01CE35]" />
-                <span>contact@yasee-it.com</span>
-              </a>
-              <a
-                href="https://wa.me/2250711444588"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-[#01CE35] transition-colors"
-              >
-                <WhatsAppIcon className="w-4 h-4 text-[#01CE35]" />
-                <span>Support WhatsApp Direct</span>
-              </a>
-              <div className="flex items-center gap-2">
-                <PhoneIcon className="w-4 h-4 text-[#01CE35]" />
-                <span>Côte d'Ivoire &amp; International</span>
-              </div>
-            </div>
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
+              <li className="flex items-center gap-2.5">
+                <MailIcon className="w-4 h-4 text-blue-400 shrink-0" />
+                <a href="mailto:contact@yasee-it.com" className="hover:text-white transition-colors">
+                  contact@yasee-it.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <WhatsAppIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+                <a href="https://wa.me/2250700000000" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  WhatsApp / Téléphone
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-blue-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
           </div>
 
         </div>
 
-        {/* Legal Mentions and PECB Disclaimer */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-300">
-          <p>
-            © 2026 YASEE IT. Tous droits réservés.
+        {/* Ligne de séparation & Tagline finale (Section 25) */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p className="font-semibold text-slate-300 text-center sm:text-left">
+            ISO 27001 ne s’apprend pas seulement. Elle se met en œuvre.
           </p>
-          <p className="text-center md:text-right text-[11px] text-slate-300 max-w-xl">
-            La certification PECB ISO/IEC 27001 Lead Implementer est une marque déposée et délivrée directement 
-            par l'organisme certificateur international PECB selon ses règles d'examen et d'attribution.
-          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 text-slate-500">
+            <a href="#" className="hover:text-slate-300 transition-colors">
+              Politique de confidentialité
+            </a>
+            <span>•</span>
+            <a href="#" className="hover:text-slate-300 transition-colors">
+              Conditions générales
+            </a>
+            <span>•</span>
+            <span>© 2026 YASEE IT. Tous droits réservés.</span>
+          </div>
         </div>
 
       </div>

@@ -43,22 +43,21 @@ export default function TrainersAndStats() {
         {/* ── HEADER ── */}
         <div ref={headerRef} className="max-w-3xl space-y-4">
           <div
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EEECFC] border border-[#1900CE]/20 text-[10px] font-mono font-bold tracking-widest text-[#1900CE] uppercase"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold tracking-widest text-blue-700 uppercase"
           >
-            CHAPITRE 06 — PÔLE D'EXPERTISE &amp; PRATIQUE DU TERRAIN
+            Pôle Formateurs &amp; Praticiens Terrain
           </div>
 
           <h2
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#080A16] tracking-tight leading-[1.05]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight"
           >
-            Pas des théoriciens.<br />
-            <span className="text-[#1900CE]">Des praticiens en activité.</span>
+            Des praticiens qui comprennent les réalités du terrain.
           </h2>
 
           <p
-            className="text-base text-[#525875] leading-relaxed max-w-2xl font-normal"
+            className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl font-medium"
           >
-            Une équipe d'experts et praticiens de terrain cumulant plus de 15 ans d'expérience opérationnelle, gérant quotidiennement des incidents majeurs, des audits de certification et des déploiements d'infrastructures critiques.
+            La formation est animée par des professionnels disposant d’une expérience opérationnelle en cybersécurité, gouvernance, gestion des risques et systèmes d’information.
           </p>
         </div>
 
@@ -293,15 +292,11 @@ export default function TrainersAndStats() {
             </div>
           </div>
 
-          {/* Footer of Encart */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 text-xs text-[#525875]">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
-              <span>Session officielle dispensée 100% en direct avec interaction continue</span>
-            </div>
-            <span className="font-mono text-[11px] font-bold text-[#1900CE]">
-              Examen officiel de certification PECB inclus
-            </span>
+          {/* Signature officielle du brief */}
+          <div className="pt-6 border-t border-slate-200 text-center">
+            <p className="text-sm sm:text-base font-bold text-slate-800 tracking-tight">
+              Deux praticiens. Une approche orientée terrain. Une même ambition : <span className="text-blue-700">vous rendre capable de mettre en œuvre.</span>
+            </p>
           </div>
 
         </div>
