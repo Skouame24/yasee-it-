@@ -23,7 +23,7 @@ const comparisons = [
   {
     topic: "Formateurs",
     standard: "Théoriciens ou enseignants généralistes sans expérience vécue de crise cyber.",
-    yasee: "Équipe d'experts praticiens GRC & Cyber en activité ayant géré des ransomwares réels."
+    yasee: "Équipe d'experts chevronnés GRC & Cyber en activité ayant géré des ransomwares réels."
   },
   {
     topic: "Examen & Titre PECB",
@@ -60,7 +60,7 @@ export default function FieldReality() {
           </h2>
 
           <p ref={subtitleRef} className="text-sm sm:text-base text-[#525875] font-normal leading-relaxed">
-            Pourquoi notre approche forme des praticiens opérationnels immédiatement respectés par les comités de direction et les auditeurs.
+            Pourquoi notre approche forme des experts opérationnels immédiatement respectés par les comités de direction et les auditeurs.
           </p>
         </div>
 

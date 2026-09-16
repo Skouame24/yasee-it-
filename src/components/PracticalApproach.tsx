@@ -15,7 +15,7 @@ const practicalPoints = [
     icon: "🛠️",
   },
   {
-    title: "Échanges directs avec des praticiens en activité",
+    title: "Échanges directs avec des experts en activité",
     description: "Pas de formateurs académiques déconnectés : vos instructeurs pilotent des SMSI, mènent des audits et négocient des budgets cyber au quotidien.",
     icon: "👥",
   },

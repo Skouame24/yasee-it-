@@ -64,7 +64,7 @@ const days = [
   {
     day: "J5",
     date: "Vendredi 18 Décembre",
-    title: "Examen Officiel PECB Lead Implementer",
+    title: "Examen Officiel PECB Certified ISO/IEC 27001 Lead Implementer",
     badge: "Examen 3h — Livre Ouvert",
     isExamDay: true,
     morning: [

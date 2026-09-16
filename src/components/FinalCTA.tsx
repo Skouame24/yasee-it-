@@ -23,7 +23,7 @@ export default function FinalCTA({ onOpenModal }: FinalCTAProps) {
             Session Décembre 2026
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Prêt à passer de la connaissance d’ISO 27001 à sa mise en œuvre ?
+            Prêt à devenir PECB Certified ISO/IEC 27001 Lead Implementer ?
           </h2>
           <div className="w-12 h-1 bg-blue-500 mx-auto rounded-full mt-4" />
         </div>

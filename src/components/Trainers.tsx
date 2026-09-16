@@ -8,7 +8,7 @@ export default function Trainers() {
         <SectionReveal>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0B0E1E] tracking-tight">
-              Des praticiens qui comprennent les réalités du terrain.
+              Des experts qui connaissent les réalités du terrain.
             </h2>
             <div className="w-16 h-1 bg-[#4A72FF] mx-auto rounded-full mt-6 mb-8"></div>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">
@@ -54,7 +54,7 @@ export default function Trainers() {
         <SectionReveal>
           <div className="mt-16 text-center">
             <p className="text-xl md:text-2xl font-bold text-[#0B0E1E]">
-              Deux praticiens. Une approche orientée terrain. <br className="hidden md:block"/>
+              Deux experts. Une approche orientée terrain. <br className="hidden md:block"/>
               <span className="text-[#01CE35]">Une même ambition : vous rendre capable de mettre en œuvre.</span>
             </p>
           </div>

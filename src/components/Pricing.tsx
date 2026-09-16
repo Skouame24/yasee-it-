@@ -9,9 +9,9 @@ interface PricingProps {
 
 export default function Pricing({ onOpenModal }: PricingProps) {
   const inclusions = [
-    { title: "5 jours de formation", desc: "Session intensive animée en direct par des praticiens certifiés" },
-    { title: "Formation PECB", desc: "Curriculum officiel aligné sur les exigences internationales ISO/IEC 27001" },
-    { title: "Examen officiel PECB", desc: "Passage de l'examen officiel inclus avec droit de repassage selon conditions" },
+    { title: "5 jours de formation", desc: "Session intensive animée en direct par des experts certifiés" },
+    { title: "Formation officielle", desc: "Curriculum officiel PECB Certified ISO/IEC 27001 Lead Implementer" },
+    { title: "Examen officiel inclus", desc: "Passage de l'examen officiel PECB Certified ISO/IEC 27001 Lead Implementer inclus avec droit de repassage" },
     { title: "Supports de formation", desc: "Documentation officielle PECB complète et supports de cours actualisés" },
     { title: "Études de cas", desc: "Scénarios réels d'entreprises et contextes organisationnels complexes" },
     { title: "Exercices pratiques", desc: "Mise en situation directe sur l'appréciation des risques et le SMSI" },
@@ -163,7 +163,7 @@ export default function Pricing({ onOpenModal }: PricingProps) {
                   Format : 100 % en ligne • 14 au 18 décembre 2026
                 </span>
                 <span className="text-[#1900CE] font-bold">
-                  Accrédité PECB Trainer
+                  Formation Certifiante Officielle
                 </span>
               </div>
 

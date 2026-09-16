@@ -50,7 +50,7 @@ export default function CountdownTimer({
           </div>
 
           <h4 className="text-base sm:text-lg font-extrabold text-white tracking-tight">
-            Session Officielle ISO 27001 : <span className="text-amber-400">14 au 18 Décembre 2026</span>
+            Session Officielle PECB Certified ISO/IEC 27001 Lead Implementer : <span className="text-amber-400">14 au 18 Décembre 2026</span>
           </h4>
 
           <div className="flex items-start gap-3 bg-blue-900/20 text-blue-100 px-4 py-3 rounded border border-blue-800/30">

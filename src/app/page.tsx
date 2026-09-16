@@ -12,14 +12,10 @@ import Program from "@/components/Program";
 import Pedagogy from "@/components/Pedagogy";
 import TrainersAndStats from "@/components/TrainersAndStats";
 import WhyYaseeIT from "@/components/WhyYaseeIT";
-import CertificationPECB from "@/components/CertificationPECB";
 import Pricing from "@/components/Pricing";
-import Enterprise from "@/components/Enterprise";
-import LimitedSeats from "@/components/LimitedSeats";
-import FAQ from "@/components/FAQ";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import ReservationModal from "@/components/ReservationModal";
-import FinalCTA from "@/components/FinalCTA";
 import EnrollmentSection from "@/components/EnrollmentSection";
 import FloatingActions from "@/components/FloatingActions";
 
@@ -61,23 +57,11 @@ export default function Home() {
       {/* 12. Section : Pourquoi YASEE IT ? */}
       <WhyYaseeIT />
 
-      {/* 13. Section : Certification PECB */}
-      <CertificationPECB />
+      {/* 14. Section : Investissement (mise en commentaire demandée) */}
+      {/* <Pricing onOpenModal={() => setModalOpen(true)} /> */}
 
-      {/* 14. Section : Investissement */}
-      <Pricing onOpenModal={() => setModalOpen(true)} />
-
-      {/* 15. Section : Entreprises */}
-      <Enterprise onOpenModal={() => setModalOpen(true)} />
-
-      {/* 16. Section : Places limitées */}
-      <LimitedSeats onOpenModal={() => setModalOpen(true)} />
-
-      {/* 17. Section : FAQ */}
-      <FAQ />
-
-      {/* 18. Section : Dernier CTA */}
-      <FinalCTA onOpenModal={() => setModalOpen(true)} />
+      {/* 16.5. Section : Témoignages */}
+      <Testimonials />
 
       {/* 22. Section : Formulaire d’inscription directement sur la page */}
       <EnrollmentSection />

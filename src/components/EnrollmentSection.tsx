@@ -57,10 +57,10 @@ export default function EnrollmentSection() {
                     Session Décembre 2026
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                    ISO/IEC 27001 Lead Implementer
+                    PECB Certified ISO/IEC 27001 Lead Implementer
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                    Formation certifiante PECB officielle animée par des praticiens du terrain.
+                    Formation certifiante PECB officielle animée par des experts du terrain.
                   </p>
                 </div>
 

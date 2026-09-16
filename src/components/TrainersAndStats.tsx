@@ -9,15 +9,6 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
-const kpis = [
-  { value: 50, suffix: "+", label: "Projets Cybersécurité", sub: "Pilotés en Afrique de l'Ouest" },
-  { value: 5, suffix: "", label: "Crises Ransomware", sub: "Gérées avec reprise intégrale" },
-  { value: 3000, suffix: "+", format: true, label: "Terminaux Sécurisés", sub: "Environnements bancaires & critiques" },
-  { value: 56, suffix: "", label: "Pare-feux Déployés", sub: "Check Point & Fortinet" },
-];
-
-
-
 export default function TrainersAndStats() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -45,13 +36,13 @@ export default function TrainersAndStats() {
           <div
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold tracking-widest text-blue-700 uppercase"
           >
-            Pôle Formateurs &amp; Praticiens Terrain
+            Pôle Formateurs &amp; Experts Terrain
           </div>
 
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight"
           >
-            Des praticiens qui comprennent les réalités du terrain.
+            Des experts qui connaissent les réalités du terrain.
           </h2>
 
           <p
@@ -61,23 +52,6 @@ export default function TrainersAndStats() {
           </p>
         </div>
 
-        {/* ── KPI STRIP ── */}
-        <div ref={kpisGridRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {kpis.map((k, idx) => (
-            <div
-              key={idx}
-              className="p-6 rounded-2xl bg-white border border-[#E2E4F0] hover:border-[#1900CE]/40 transition-all space-y-2 shadow-sm"
-            >
-              <span
-                className="block text-4xl sm:text-5xl font-black font-mono text-[#080A16] leading-none tracking-tight"
-              >
-                {k.format ? k.value.toLocaleString("fr-FR") : k.value}{k.suffix}
-              </span>
-              <div className="text-sm font-bold text-[#080A16]/80">{k.label}</div>
-              <div className="text-[11px] text-[#525875] font-mono">{k.sub}</div>
-            </div>
-          ))}
-        </div>
 
         {/* ── UN SEUL ENCART UNIQUE : PÔLE D'EXPERTISE ET FORMATEURS (ANONYMAT TOTAL) ── */}
         <div
@@ -94,25 +68,21 @@ export default function TrainersAndStats() {
                 <span className="px-3.5 py-1 rounded-full bg-[#1900CE] text-white font-mono text-xs font-extrabold tracking-wider uppercase">
                   Pôle d'Expertise &amp; Formateurs Certifiés
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6FAEB] border border-[#01CE35]/30 text-[#01CE35] font-mono text-xs font-bold">
-                  <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
-                  Accrédités PECB Certified Trainer
-                </span>
                 <span className="text-xs font-mono font-bold text-[#525875]">
-                  ● 15+ années d'expérience terrain cumulée
+                  ● 20+ années d'expérience terrain cumulée
                 </span>
               </div>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#080A16] tracking-tight">
                 Domaines d'Expertise &amp; Autorité Opérationnelle
               </h3>
               <p className="text-sm sm:text-base text-[#525875] max-w-3xl leading-relaxed">
-                L'animation pédagogique est assurée par des praticiens et experts en activité (RSSI, directeurs cybersécurité et auditeurs) qui conçoivent, pilotent et défendent au quotidien des Systèmes de Management de la Sécurité de l'Information sur des infrastructures critiques en Afrique de l'Ouest et à l'international.
+                L'animation pédagogique est assurée par des experts de haut niveau en activité (RSSI, directeurs cybersécurité et auditeurs) qui conçoivent, pilotent et défendent au quotidien des Systèmes de Management de la Sécurité de l'Information sur des infrastructures critiques en Afrique de l'Ouest et à l'international.
               </p>
             </div>
 
             <div className="shrink-0 flex lg:flex-col items-center lg:items-end gap-1.5 bg-[#F8F9FD] px-5 py-4 rounded-2xl border border-[#E2E4F0] shadow-sm">
-              <span className="text-[10px] font-mono font-bold uppercase text-[#525875]">Accréditation Officielle</span>
-              <span className="text-base font-extrabold text-[#1900CE]">PECB Certified Trainer</span>
+              <span className="text-[10px] font-mono font-bold uppercase text-[#525875]">Standard International</span>
+              <span className="text-base font-extrabold text-[#1900CE]">Formation Certifiante</span>
               <span className="text-[11px] font-mono text-[#01CE35] font-bold">Conforme ISO/IEC 17024</span>
             </div>
           </div>
@@ -202,44 +172,7 @@ export default function TrainersAndStats() {
 
           </div>
 
-          {/* Bilan Opérationnel de Terrain & Réalisations Vérifiables */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#E2E4F0] space-y-4 shadow-sm">
-            <div className="flex items-center justify-between flex-wrap gap-2 pb-3 border-b border-[#E2E4F0]">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#1900CE]">
-                Bilan d'Intervention &amp; Faits d'Armes Opérationnels
-              </span>
-              <span className="text-xs font-mono font-bold text-[#01CE35]">
-                ✓ Expérience vécue sur le terrain
-              </span>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
-              <div className="flex items-start gap-3">
-                <span className="w-5 h-5 rounded-full bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
-                <p className="text-xs text-[#525875] leading-relaxed">
-                  <strong className="text-[#080A16]">50+ projets cybersécurité</strong> et SMSI pilotés avec succès en Afrique de l'Ouest.
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="w-5 h-5 rounded-full bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
-                <p className="text-xs text-[#525875] leading-relaxed">
-                  <strong className="text-[#080A16]">5 crises ransomware majeures</strong> résolues avec reprise intégrale d'activité sans rançon.
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="w-5 h-5 rounded-full bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
-                <p className="text-xs text-[#525875] leading-relaxed">
-                  <strong className="text-[#080A16]">3 000+ terminaux &amp; serveurs</strong> sécurisés dans des environnements bancaires et critiques.
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="w-5 h-5 rounded-full bg-[#E6FAEB] text-[#01CE35] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
-                <p className="text-xs text-[#525875] leading-relaxed">
-                  <strong className="text-[#080A16]">56 pare-feux industriels</strong> Check Point &amp; Fortinet déployés en haute disponibilité.
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* Accréditations & Secteurs d'Intervention */}
           <div className="p-6 sm:p-8 rounded-2xl bg-white border border-[#E2E4F0] space-y-6 shadow-sm">
@@ -254,7 +187,7 @@ export default function TrainersAndStats() {
                     "CISM (ISACA)",
                     "PMP (PMI)",
                     "PECB Sr. Lead Cybersecurity Mgr",
-                    "ISO/IEC 27001 Lead Implementer",
+                    "PECB Certified ISO/IEC 27001 Lead Implementer",
                     "ISO/IEC 27001 Lead Auditor",
                     "ISO/IEC 27005 Lead Risk Manager",
                     "ISO 22301 Lead Implementer",
@@ -295,7 +228,7 @@ export default function TrainersAndStats() {
           {/* Signature officielle du brief */}
           <div className="pt-6 border-t border-slate-200 text-center">
             <p className="text-sm sm:text-base font-bold text-slate-800 tracking-tight">
-              Deux praticiens. Une approche orientée terrain. Une même ambition : <span className="text-blue-700">vous rendre capable de mettre en œuvre.</span>
+              Deux experts de référence. Une approche orientée terrain. Une même ambition : <span className="text-blue-700">vous rendre capable de mettre en œuvre.</span>
             </p>
           </div>
 

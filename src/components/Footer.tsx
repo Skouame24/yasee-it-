@@ -30,7 +30,7 @@ export default function Footer() {
             </p>
 
             <div className="inline-block px-3 py-1 rounded-full bg-blue-950/80 border border-blue-500/30 text-xs font-semibold text-blue-300">
-              ISO/IEC 27001 Lead Implementer — Décembre 2026
+              PECB Certified ISO/IEC 27001 Lead Implementer — Décembre 2026
             </div>
           </div>
 
@@ -40,6 +40,11 @@ export default function Footer() {
               Navigation
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
+              <li>
+                <a href="#accueil" className="hover:text-blue-400 transition-colors">
+                  Accueil
+                </a>
+              </li>
               <li>
                 <a href="#pourquoi-cette-formation" className="hover:text-blue-400 transition-colors">
                   Formation
@@ -51,28 +56,18 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#livrables" className="hover:text-blue-400 transition-colors">
-                  Livrables
-                </a>
-              </li>
-              <li>
                 <a href="#formateurs" className="hover:text-blue-400 transition-colors">
                   Formateurs
                 </a>
               </li>
-              <li>
-                <a href="#certification" className="hover:text-blue-400 transition-colors">
-                  PECB
-                </a>
-              </li>
-              <li>
+              {/* <li>
                 <a href="#tarif" className="hover:text-blue-400 transition-colors">
                   Tarif
                 </a>
-              </li>
+              </li> */}
               <li>
-                <a href="#faq" className="hover:text-blue-400 transition-colors">
-                  FAQ
+                <a href="#temoignages" className="hover:text-blue-400 transition-colors">
+                  Témoignages
                 </a>
               </li>
             </ul>
@@ -86,8 +81,8 @@ export default function Footer() {
             <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
               <li className="flex items-center gap-2.5">
                 <MailIcon className="w-4 h-4 text-blue-400 shrink-0" />
-                <a href="mailto:contact@yasee-it.com" className="hover:text-white transition-colors">
-                  contact@yasee-it.com
+                <a href="mailto:info@yasee-it.ci" className="hover:text-white transition-colors">
+                  info@yasee-it.ci
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -116,7 +111,7 @@ export default function Footer() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-slate-500">
-            <a href="#" className="hover:text-slate-300 transition-colors">
+            <a href="/politique-de-confidentialite" className="hover:text-slate-300 transition-colors">
               Politique de confidentialité
             </a>
             <span>•</span>

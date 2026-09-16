@@ -92,7 +92,7 @@ export default function ExitIntentModal({ onOpenReservation }: ExitIntentModalPr
 
         {/* Description */}
         <p className="text-sm text-[#5B6178] leading-relaxed max-w-md mx-auto mb-6">
-          On cadre votre besoin et on vous dit concrètement par où commencer pour votre certification ISO 27001. Gratuit et sans engagement.
+          On cadre votre besoin et on vous dit concrètement par où commencer pour votre certification PECB Certified ISO/IEC 27001 Lead Implementer. Gratuit et sans engagement.
         </p>
 
         {/* Key Points / Badges */}

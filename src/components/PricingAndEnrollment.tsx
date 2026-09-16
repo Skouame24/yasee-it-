@@ -110,8 +110,8 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
               </span>
               <div className="grid grid-cols-1 gap-2.5">
                 {[
-                  "5 Jours d'animation 100% interactive par des praticiens certifiés",
-                  "Voucher officiel d'examen PECB ISO/IEC 27001 Lead Implementer",
+                  "5 Jours d'animation 100% interactive par des experts certifiés",
+                  "Voucher officiel d'examen PECB Certified ISO/IEC 27001 Lead Implementer",
                   "Accès complet au matériel officiel de cours accrédité PECB (350+ p.)",
                   "Kit documentaire opérationnel (Modèle PSSI, Grille d'Audit, SoA)",
                   "Accompagnement intensif aux questions situationnelles d'examen",

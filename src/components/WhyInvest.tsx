@@ -33,7 +33,7 @@ export default function WhyInvest() {
       desc: "Développer votre capacité à piloter la sécurité au-delà de la dimension technique.",
     },
     {
-      title: "Intervenir sur des projets ISO 27001",
+      title: "Intervenir en tant que PECB Certified ISO/IEC 27001 Lead Implementer",
       desc: "Acquérir une méthodologie applicable aux missions de mise en œuvre et d’accompagnement.",
     },
     {

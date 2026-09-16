@@ -14,25 +14,29 @@ interface NavbarProps {
 }
 
 const navLinks = [
+  { href: "#accueil", label: "Accueil" },
   { href: "#pourquoi-cette-formation", label: "Formation" },
   { href: "#programme", label: "Programme" },
-  { href: "#livrables", label: "Livrables" },
   { href: "#formateurs", label: "Formateurs" },
-  { href: "#certification", label: "PECB" },
-  { href: "#tarif", label: "Tarif" },
-  { href: "#faq", label: "FAQ" },
+  // { href: "#tarif", label: "Tarif" },
+  { href: "#temoignages", label: "Témoignages" },
 ];
 
 export default function Navbar({ onOpenModal }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("");
+  const [activeLink, setActiveLink] = useState("#accueil");
   const navRef = useRef<HTMLElement>(null);
   const mobileDrawerRef = useRef<HTMLDivElement>(null);
 
   // Scroll detection & Active link tracking
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+      if (window.scrollY < 80) {
+        setActiveLink("#accueil");
+      }
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     
     // Intersection Observer for active sections
@@ -100,7 +104,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           <div className="flex items-center gap-4 text-white/80">
             <span className="inline-flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-[#01CE35]"></span>
-              <span>Groupe YASEE IT — Abidjan, Côte d'Ivoire · Expert ISO/IEC 27001</span>
+              <span>YASEE IT — Abidjan, Côte d'Ivoire · Expert ISO/IEC 27001</span>
             </span>
           </div>
           <div className="flex items-center gap-5">
@@ -138,9 +142,9 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
 
             {/* ── LOGO ── */}
             <a
-              href="#"
+              href="#accueil"
               className="flex items-center gap-3 shrink-0 group"
-              onClick={() => setActiveLink("")}
+              onClick={() => setActiveLink("#accueil")}
             >
               <div className="relative">
                 <Image
@@ -155,10 +159,10 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
               {/* Divider + formation label */}
               <div className="hidden md:flex flex-col border-l border-black/8 pl-3 leading-tight">
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-[#080A16]/50">
-                  GROUPE YASEE IT
+                  YASEE IT
                 </span>
                 <span className="text-[11px] font-bold text-[#1900CE] tracking-tight">
-                  ISO/IEC 27001 Lead Implementer
+                  PECB Certified ISO/IEC 27001 Lead Implementer
                 </span>
               </div>
             </a>

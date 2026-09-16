@@ -24,7 +24,7 @@ export default function CertificationPECB() {
             Accréditation Officielle
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Une formation certifiante PECB
+            Formation officielle PECB Certified ISO/IEC 27001 Lead Implementer
           </h2>
           <div className="w-12 h-1 bg-blue-600 mx-auto rounded-full mt-4" />
         </div>
@@ -32,7 +32,7 @@ export default function CertificationPECB() {
         {/* Texte de présentation */}
         <div className="max-w-3xl mx-auto text-center mb-12">
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
-            Cette formation prépare à la certification PECB ISO/IEC 27001 Lead Implementer, destinée aux professionnels souhaitant développer leurs compétences pour mettre en œuvre, maintenir et améliorer un Système de Management de la Sécurité de l’Information.
+            Cette formation prépare à la certification officielle PECB Certified ISO/IEC 27001 Lead Implementer, destinée aux professionnels souhaitant développer leurs compétences pour mettre en œuvre, maintenir et améliorer un Système de Management de la Sécurité de l’Information.
           </p>
         </div>
 

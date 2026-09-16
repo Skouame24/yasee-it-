@@ -9,7 +9,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Formation ISO/IEC 27001 Lead Implementer | YASEE IT",
+  title: "Formation PECB Certified ISO/IEC 27001 Lead Implementer | YASEE IT",
   description:
     "De la norme à la pratique : pilotez un SMSI qui tient sur le terrain. Formation certifiante officielle de 5 jours animée par deux experts Cybersécurité et GRC en activité. Du 14 au 18 Décembre 2026.",
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "YASEE IT" }],
   openGraph: {
-    title: "Formation ISO/IEC 27001 Lead Implementer | YASEE IT",
+    title: "Formation PECB Certified ISO/IEC 27001 Lead Implementer | YASEE IT",
     description:
       "De la norme à la pratique : pilotez un SMSI qui tient sur le terrain. Formation certifiante de 5 jours en ligne en français.",
     type: "website",

@@ -9,7 +9,7 @@ export default function FAQ() {
   const faqs = [
     {
       q: "La formation est-elle certifiante ?",
-      a: "La formation prépare à la certification PECB ISO/IEC 27001 Lead Implementer. L’examen officiel est inclus dans le tarif de la formation. La certification finale est délivrée par PECB selon ses critères et conditions.",
+      a: "La formation prépare à la certification officielle PECB Certified ISO/IEC 27001 Lead Implementer. L’examen officiel est inclus dans le tarif de la formation. La certification finale est délivrée par PECB selon ses critères et conditions.",
     },
     {
       q: "L’examen est-il inclus ?",
