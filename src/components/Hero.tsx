@@ -125,7 +125,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
           {/* Micro-copy sous CTA */}
           <p className="text-xs sm:text-sm text-slate-400 font-normal">
-            Places limitées — inscription individuelle ou prise en charge par l’entreprise.
+            Places limitées — Date limite d’inscription : <span className="text-amber-400 font-semibold">30/11/2026</span> • Inscription individuelle ou prise en charge par l’entreprise.
           </p>
 
         </div>

@@ -65,10 +65,18 @@ export default function EnrollmentSection() {
                 </div>
 
                 <div className="space-y-4">
+                  <div className="flex items-center gap-3 p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30">
+                    <CalendarIcon className="w-5 h-5 text-rose-400 shrink-0" />
+                    <div>
+                      <div className="text-[10px] uppercase font-mono text-rose-300 font-bold">Date limite d’inscription</div>
+                      <div className="text-sm font-bold text-white">30 novembre 2026 (30/11/2026)</div>
+                    </div>
+                  </div>
+
                   <div className="flex items-center gap-3 p-3.5 rounded-xl bg-white/5 border border-white/10">
                     <CalendarIcon className="w-5 h-5 text-blue-400 shrink-0" />
                     <div>
-                      <div className="text-[10px] uppercase font-mono text-slate-400">Dates</div>
+                      <div className="text-[10px] uppercase font-mono text-slate-400">Dates de la session</div>
                       <div className="text-sm font-bold text-white">14 — 18 décembre 2026</div>
                     </div>
                   </div>

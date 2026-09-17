@@ -68,7 +68,7 @@ export default function PricingAndEnrollment({ onOpenModal }: PricingProps) {
         </div>
 
         {/* Compte à Rebours Interactif en Direct */}
-        <CountdownTimer targetDate="2026-12-10T23:59:59" />
+        <CountdownTimer targetDate="2026-11-30T23:59:59" />
 
         {/* Pricing & Form Split Layout */}
         <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

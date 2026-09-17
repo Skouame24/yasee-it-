@@ -83,7 +83,7 @@ export default function ReservationModal({ isOpen, onClose }: ModalProps) {
                 Réserver ma place
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Session 14 — 18 décembre 2026 • 100 % en ligne • 800 000 FCFA TTC
+                Session 14 — 18 décembre 2026 • Date limite d'inscription : 30/11/2026 • 800 000 FCFA TTC
               </p>
             </div>
 

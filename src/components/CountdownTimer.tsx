@@ -8,7 +8,7 @@ interface CountdownTimerProps {
 }
 
 export default function CountdownTimer({
-  targetDate = "2026-12-10T23:59:59",
+  targetDate = "2026-11-30T23:59:59",
 }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -46,7 +46,7 @@ export default function CountdownTimer({
         <div className="space-y-4 text-center lg:text-left">
           <div className="flex items-center gap-3 bg-rose-900/40 text-rose-200 px-4 py-2 rounded border border-rose-800/50">
             <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-            <span>Clôture impérative des inscriptions : 30 Novembre 2026</span>
+            <span>Clôture impérative des inscriptions : 30 Novembre 2026 (30/11/2026)</span>
           </div>
 
           <h4 className="text-base sm:text-lg font-extrabold text-white tracking-tight">

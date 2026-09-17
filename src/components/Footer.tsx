@@ -67,7 +67,7 @@ export default function Footer() {
               </li> */}
               <li>
                 <a href="#temoignages" className="hover:text-blue-400 transition-colors">
-                  Témoignages
+                  Retours d'expérience
                 </a>
               </li>
             </ul>
@@ -87,15 +87,25 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <WhatsAppIcon className="w-4 h-4 text-emerald-400 shrink-0" />
-                <a href="https://wa.me/2250700000000" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  WhatsApp / Téléphone
+                <a
+                  href="https://wa.me/2250711444588"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  WhatsApp (+225 07 11 44 45 88)
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <svg className="w-4 h-4 text-blue-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a
+                  href="https://www.linkedin.com/in/ericyapo-cybersecurity?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   LinkedIn
                 </a>
               </li>
