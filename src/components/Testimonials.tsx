@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { StarIcon, ShieldCheckIcon, AwardIcon, ChevronLeftIcon, ChevronRightIcon } from "./Icons";
+import { ShieldCheckIcon, AwardIcon, ChevronLeftIcon, ChevronRightIcon } from "./Icons";
 
 interface Testimonial {
   name: string;
   role: string;
-  company: string;
-  city: string;
+  company?: string;
+  city?: string;
   avatarBg: string;
   initials: string;
   certBadge: string;
@@ -17,64 +17,24 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Koffi K.",
-    role: "Responsable Sécurité des Systèmes d'Information (RSSI)",
-    company: "Groupe Bancaire Régional",
-    city: "Abidjan, Côte d'Ivoire",
+    name: "Franck Patrick OUEDRAOGO",
+    role: "Expert Cybersécurité RSSI / GRC",
     avatarBg: "bg-gradient-to-br from-blue-600 to-indigo-700",
-    initials: "KK",
-    certBadge: "PECB Certified ISO/IEC 27001 Lead Implementer",
+    initials: "FO",
+    certBadge: "ISO 27001 Lead Auditor",
     quote:
-      "La formation avec YASEE IT va bien au-delà de la théorie académique. Nous avons manipulé des modèles concrets de PSSI, de SoA (DdA) et de registres des risques immédiatement transposables dans notre infrastructure bancaire. L'examen a été réussi du premier coup avec une réelle confiance.",
-    highlight: "Modèles directement exploitables en environnement bancaire",
+      "Je tenais à vous remercier pour la qualité de la formation ISO 27001 Lead Auditor dont j'ai bénéficié en mars 2025. Votre approche pédagogique et votre expertise m'ont permis de consolider mes fondamentaux en cybersécurité, notamment sur les méthodologies d'audit et la maîtrise du SMSI.\n\nCette certification constitue une étape importante dans mon parcours professionnel, et je suis reconnaissant de l'accompagnement reçu.\n\nEncore merci pour votre engagement et la qualité des échanges.",
+    highlight: "Méthodologies d'audit & maîtrise du SMSI",
   },
   {
-    name: "Aminata D.",
-    role: "Responsable Conformité & Risques GRC",
-    company: "Opérateur Télécom & FinTech",
-    city: "Dakar / Abidjan",
+    name: "Sophonie HOUENOU",
+    role: "Chargé Infrastructures Réseaux et Télécommunications",
     avatarBg: "bg-gradient-to-br from-emerald-600 to-teal-700",
-    initials: "AD",
-    certBadge: "PECB Certified ISO/IEC 27001 Lead Implementer",
+    initials: "SH",
+    certBadge: "Formation & Conformité ISO",
     quote:
-      "Une session intensive, particulièrement structurée et sans langue de bois. Les formateurs sont des experts chevronnés en activité qui partagent un retour d'expérience précieux face aux régulateurs et aux incidents réels. La préparation à l'examen officiel PECB était chirurgicale.",
-    highlight: "Excellente maîtrise des exigences réglementaires",
-  },
-  {
-    name: "Marc-Antoine T.",
-    role: "Consultant Senior Cybersécurité & Audit",
-    company: "Cabinet Conseil International",
-    city: "Abidjan, Côte d'Ivoire",
-    avatarBg: "bg-gradient-to-br from-indigo-600 to-violet-700",
-    initials: "MT",
-    certBadge: "PECB Certified ISO/IEC 27001 Lead Implementer",
-    quote:
-      "Ce qui distingue nettement YASEE IT, c'est l'approche opérationnelle. Ce ne sont pas des diapositives lues passivement, mais des ateliers vivants où chaque exigence de la norme est confrontée aux contraintes budgétaires, techniques et humaines réelles d'une entreprise.",
-    highlight: "Ateliers pragmatiques et cas d'usage réels",
-  },
-  {
-    name: "Dr. Sékou O.",
-    role: "Directeur des Systèmes d'Information (DSI)",
-    company: "Secteur Public & Services Numériques",
-    city: "Yamoussoukro, Côte d'Ivoire",
-    avatarBg: "bg-gradient-to-br from-slate-700 to-slate-900",
-    initials: "SO",
-    certBadge: "PECB Certified ISO/IEC 27001 Lead Implementer",
-    quote:
-      "J'avais besoin d'aligner notre gouvernance sur les meilleurs standards internationaux. Grâce à cette formation certifiante, j'ai acquis le cadre méthodologique exact pour piloter notre SMSI et mobiliser la Direction Générale autour des investissements prioritaires de sécurité.",
-    highlight: "Alignement stratégique avec la Direction Générale",
-  },
-  {
-    name: "Fatoumata B.",
-    role: "Lead Auditrice Interne & Contrôle Permanent",
-    company: "Compagnie d'Énergie & Industrie",
-    city: "Abidjan, Côte d'Ivoire",
-    avatarBg: "bg-gradient-to-br from-amber-600 to-orange-700",
-    initials: "FB",
-    certBadge: "PECB Certified ISO/IEC 27001 Lead Implementer",
-    quote:
-      "La revue approfondie des 93 mesures de sécurité de l'Annexe A 2022 et la méthode de traitement des risques m'ont permis de clarifier immédiatement notre plan d'audit interne. Une formation d'un très grand professionnalisme.",
-    highlight: "Maîtrise complète des contrôles de l'Annexe A",
+      "Je recommande vivement cette formation ISO pour la qualité de son contenu et l'expertise du formateur. Elle m'a permis de mieux comprendre les exigences de la norme et d'acquérir des compétences pratiques immédiatement applicables dans mon activité professionnelle. Une formation enrichissante, claire et très pertinente pour toute personne souhaitant renforcer ses connaissances en management de la qualité et conformité ISO.",
+    highlight: "Compétences pratiques immédiatement applicables",
   },
 ];
 
@@ -133,44 +93,16 @@ export default function Testimonials() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
-        {/* En-tête de section soft & institutionnel */}
+        {/* En-tête de section */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-bold tracking-widest text-blue-700 uppercase">
             <AwardIcon className="w-4 h-4 text-blue-600" />
-            <span>Retours d'Expérience Institutionnels</span>
+            <span>Retours d'expérience</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Ils ont validé la démarche sur le terrain.
+            Retours d'expérience
           </h2>
-
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Découvrez comment des responsables sécurité, conformité et directeurs IT ont renforcé la gouvernance de leur organisation grâce à la formation{" "}
-            <strong className="text-slate-800 font-semibold">PECB Certified ISO/IEC 27001 Lead Implementer</strong> dispensée par YASEE IT.
-          </p>
-
-          {/* Indicateurs clés de confiance */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-600 font-medium">
-            <div className="flex items-center gap-1.5">
-              <span className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} className="w-4 h-4 fill-amber-400" />
-                ))}
-              </span>
-              <span className="font-bold text-slate-900 ml-1">4.9 / 5</span>
-              <span>note moyenne</span>
-            </div>
-            <span className="text-slate-300 hidden sm:inline">•</span>
-            <div className="flex items-center gap-1.5">
-              <ShieldCheckIcon className="w-4 h-4 text-emerald-600" />
-              <span>Examen officiel inclus</span>
-            </div>
-            <span className="text-slate-300 hidden sm:inline">•</span>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span>100 % experts en activité</span>
-            </div>
-          </div>
         </div>
 
         {/* ── CAROUSEL SOFT SLIDER AVEC FLÈCHES LATÉRALES ── */}
@@ -211,17 +143,11 @@ export default function Testimonials() {
                   key={idx}
                   className="w-full shrink-0 p-8 sm:p-12 lg:p-14 flex flex-col justify-between space-y-8"
                 >
-                  {/* Étoiles et Badge Officiel */}
-                  <div className="flex flex-wrap items-center justify-between gap-4">
+                  {/* Badge Officiel */}
+                  <div className="flex items-center justify-between gap-4">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-800">
                       <ShieldCheckIcon className="w-4 h-4 text-blue-600 shrink-0" />
                       <span>{t.certBadge}</span>
-                    </div>
-
-                    <div className="flex text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <StarIcon key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400" />
-                      ))}
                     </div>
                   </div>
 
@@ -230,9 +156,11 @@ export default function Testimonials() {
                     <span className="absolute -top-4 -left-2 text-6xl text-blue-100 font-serif select-none pointer-events-none">
                       “
                     </span>
-                    <p className="relative text-base sm:text-lg lg:text-xl text-slate-800 leading-relaxed font-normal italic pl-4">
-                      {t.quote}
-                    </p>
+                    <div className="relative text-base sm:text-lg lg:text-xl text-slate-800 leading-relaxed font-normal italic pl-4 space-y-3">
+                      {t.quote.split("\n\n").map((para, pIdx) => (
+                        <p key={pIdx}>{para}</p>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Pied de carte : Profil auteur + Point fort */}
@@ -250,19 +178,17 @@ export default function Testimonials() {
                         <p className="text-xs sm:text-sm font-medium text-slate-600">
                           {t.role}
                         </p>
-                        <p className="text-xs text-slate-400 font-medium">
-                          {t.company} • {t.city}
-                        </p>
+                        {(t.company || t.city) && (
+                          <p className="text-xs text-slate-400 font-medium">
+                            {[t.company, t.city].filter(Boolean).join(" • ")}
+                          </p>
+                        )}
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div>
                       <span className="text-xs font-semibold text-blue-900 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200/80">
                         ✓ {t.highlight}
-                      </span>
-                      <span className="text-xs font-mono text-emerald-600 font-bold hidden sm:inline-flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        Certifié
                       </span>
                     </div>
                   </div>
