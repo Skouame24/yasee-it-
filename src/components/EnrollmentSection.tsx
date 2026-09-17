@@ -101,9 +101,6 @@ export default function EnrollmentSection() {
                 </div>
               </div>
 
-              <div className="text-xs text-slate-400 font-mono">
-                Organisme accrédité PECB Trainer
-              </div>
             </div>
 
             {/* Colonne Droite : Formulaire Exécutif (7 cols) */}

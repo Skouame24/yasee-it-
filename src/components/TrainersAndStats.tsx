@@ -36,7 +36,7 @@ export default function TrainersAndStats() {
           <div
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold tracking-widest text-blue-700 uppercase"
           >
-            Pôle Formateurs &amp; Experts Terrain
+            Pôle Formateurs
           </div>
 
           <h2
@@ -76,14 +76,8 @@ export default function TrainersAndStats() {
                 Domaines d'Expertise &amp; Autorité Opérationnelle
               </h3>
               <p className="text-sm sm:text-base text-[#525875] max-w-3xl leading-relaxed">
-                L'animation pédagogique est assurée par des experts de haut niveau en activité (RSSI, directeurs cybersécurité et auditeurs) qui conçoivent, pilotent et défendent au quotidien des Systèmes de Management de la Sécurité de l'Information sur des infrastructures critiques en Afrique de l'Ouest et à l'international.
+                L'animation pédagogique est assurée par des experts de haut niveau en activité qui conçoivent, pilotent et défendent au quotidien des Systèmes de Management de la Sécurité de l'Information sur des infrastructures critiques en Afrique de l'Ouest et à l'international.
               </p>
-            </div>
-
-            <div className="shrink-0 flex lg:flex-col items-center lg:items-end gap-1.5 bg-[#F8F9FD] px-5 py-4 rounded-2xl border border-[#E2E4F0] shadow-sm">
-              <span className="text-[10px] font-mono font-bold uppercase text-[#525875]">Standard International</span>
-              <span className="text-base font-extrabold text-[#1900CE]">Formation Certifiante</span>
-              <span className="text-[11px] font-mono text-[#01CE35] font-bold">Conforme ISO/IEC 17024</span>
             </div>
           </div>
 
@@ -194,7 +188,7 @@ export default function TrainersAndStats() {
                     "EBIOS RM Certified",
                     "CIS Controls Specialist",
                     "(ISC)² CC",
-                    "Conformité RGPD / APDP",
+                    "RGSSI de l'ANSSI Côte d'Ivoire",
                   ].map((cert, ci) => (
                     <span key={ci} className="px-2.5 py-1 rounded-lg bg-[#EEECFC] text-[#1900CE] border border-[#1900CE]/20 font-mono text-[11px] font-bold">
                       {cert}
@@ -213,7 +207,7 @@ export default function TrainersAndStats() {
                     "Opérateurs de Télécommunications",
                     "Ministères & Institutions d'État",
                     "Compagnies d'Assurances",
-                    "Infrastructures de Santé Critiques",
+                    "Santé privée et publique",
                     "Multinationales Industrielles",
                   ].map((sec, si) => (
                     <span key={si} className="px-3 py-1 rounded-full bg-[#F8F9FD] border border-[#E2E4F0] text-xs font-semibold text-[#525875]">

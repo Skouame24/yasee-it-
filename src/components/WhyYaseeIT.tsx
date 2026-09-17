@@ -29,9 +29,7 @@ export default function WhyYaseeIT() {
         
         {/* En-tête */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-bold tracking-widest text-blue-700 uppercase">
-            L'Expertise YASEE IT
-          </div>
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Une approche fondée sur l’expérience opérationnelle.
           </h2>

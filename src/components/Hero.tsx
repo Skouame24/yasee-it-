@@ -73,12 +73,12 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 </div>
               </div>
 
-              {/* 4. Formation orientée mise en œuvre */}
+              {/* 4. Voucher examen */}
               <div className="flex items-center gap-3 p-3 sm:p-3.5 rounded-xl bg-slate-800/50 border border-white/5 text-left">
                 <CheckCircleIcon className="w-5 h-5 text-blue-400 shrink-0" />
                 <div className="min-w-0">
-                  <div className="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Pédagogie</div>
-                  <div className="text-xs sm:text-sm font-bold text-white truncate" title="Orientée mise en œuvre">Mise en œuvre</div>
+                  <div className="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Examen</div>
+                  <div className="text-xs sm:text-sm font-bold text-white truncate" title="Voucher examen">Voucher inclus</div>
                 </div>
               </div>
 
@@ -87,7 +87,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 <ShieldCheckIcon className="w-5 h-5 text-blue-400 shrink-0" />
                 <div className="min-w-0">
                   <div className="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Livrable</div>
-                  <div className="text-xs sm:text-sm font-bold text-white truncate" title="Attestation de formation">Attestation incluse</div>
+                  <div className="text-xs sm:text-sm font-bold text-white truncate" title="Attestation de formation">Attestation de formation</div>
                 </div>
               </div>
 
@@ -95,8 +95,9 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </div>
 
           {/* Prix */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8">
+          <div className="flex flex-col items-center justify-center gap-3 mb-8 text-center">
             <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
+              <span className="text-base sm:text-lg lg:text-xl font-semibold text-blue-400 mr-2">Tarif promotionnel :</span>
               800 000 FCFA <span className="text-sm sm:text-base font-normal text-slate-400">TTC</span>
             </div>
             <div className="px-3.5 py-1.5 rounded-full bg-slate-800/90 text-xs sm:text-sm font-semibold text-slate-400 line-through border border-white/10">

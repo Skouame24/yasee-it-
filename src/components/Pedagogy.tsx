@@ -59,7 +59,7 @@ export default function Pedagogy() {
         {/* En-tête Statutaire */}
         <div className="max-w-3xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EEECFC] border border-[#1900CE]/20 text-xs font-mono font-bold tracking-widest text-[#1900CE] uppercase">
-            Approche Pédagogique &amp; Ingénierie
+            Approche Pédagogique
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#080A16] tracking-tight leading-[1.1]">
@@ -67,7 +67,7 @@ export default function Pedagogy() {
           </h2>
 
           <p className="text-base sm:text-lg text-[#525875] leading-relaxed font-normal">
-            La plupart des formations récitent les exigences de la norme. Notre méthode suit un cycle rigoureux en 5 étapes pour transformer chaque concept en capacité d'exécution vérifiable.
+            Notre méthode suit un cycle rigoureux en 5 étapes pour transformer chaque concept en capacité d'exécution vérifiable.
           </p>
         </div>
 
