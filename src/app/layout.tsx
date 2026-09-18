@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="fr" className={`${plusJakartaSans.variable} scroll-smooth`}>
       <body className="antialiased min-h-screen flex flex-col font-sans bg-white text-[#0B0E1E]">
         {children}
+        <Analytics />
       </body>
     </html>
   );
