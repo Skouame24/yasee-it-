@@ -5,6 +5,8 @@ import { CheckCircleIcon, ArrowRightIcon, ShieldCheckIcon, CalendarIcon, LaptopI
 
 export default function EnrollmentSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -17,10 +19,36 @@ export default function EnrollmentSection() {
     acceptTerms: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.acceptTerms) return;
-    setSubmitted(true);
+
+    setLoading(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/enroll", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Une erreur est survenue lors de l'envoi.");
+      }
+
+      setSubmitted(true);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setErrorMessage(err.message);
+      } else {
+        setErrorMessage("Une erreur imprévue est survenue.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -286,14 +314,28 @@ export default function EnrollmentSection() {
                     </label>
                   </div>
 
+                  {/* Message d'erreur éventuel */}
+                  {errorMessage && (
+                    <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium leading-relaxed">
+                      ⚠️ {errorMessage}
+                    </div>
+                  )}
+
                   {/* Bouton de validation */}
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-xl bg-[#1900CE] hover:bg-[#1400A6] text-white font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-[#1900CE]/30 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                      disabled={loading}
+                      className="w-full py-4 rounded-xl bg-[#1900CE] hover:bg-[#1400A6] disabled:bg-[#1900CE]/60 disabled:cursor-not-allowed text-white font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-[#1900CE]/30 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
                     >
-                      <span>ENVOYER MA DEMANDE D’INSCRIPTION</span>
-                      <ArrowRightIcon className="w-4 h-4" />
+                      {loading ? (
+                        <span>ENVOI EN COURS...</span>
+                      ) : (
+                        <>
+                          <span>ENVOYER MA DEMANDE D’INSCRIPTION</span>
+                          <ArrowRightIcon className="w-4 h-4" />
+                        </>
+                      )}
                     </button>
                   </div>
 

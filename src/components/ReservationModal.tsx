@@ -10,6 +10,8 @@ interface ModalProps {
 
 export default function ReservationModal({ isOpen, onClose }: ModalProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -24,10 +26,36 @@ export default function ReservationModal({ isOpen, onClose }: ModalProps) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.acceptTerms) return;
-    setSubmitted(true);
+
+    setLoading(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/enroll", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Une erreur est survenue lors de l'envoi.");
+      }
+
+      setSubmitted(true);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setErrorMessage(err.message);
+      } else {
+        setErrorMessage("Une erreur imprévue est survenue.");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -227,12 +255,20 @@ export default function ReservationModal({ isOpen, onClose }: ModalProps) {
                 </label>
               </div>
 
+              {/* Message d'erreur éventuel */}
+              {errorMessage && (
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium leading-relaxed">
+                  ⚠️ {errorMessage}
+                </div>
+              )}
+
               <div className="pt-3">
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-blue-500/25 transition-all cursor-pointer"
+                  disabled={loading}
+                  className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/60 disabled:cursor-not-allowed text-white font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-blue-500/25 transition-all cursor-pointer"
                 >
-                  ENVOYER MA DEMANDE D’INSCRIPTION
+                  {loading ? "ENVOI EN COURS..." : "ENVOYER MA DEMANDE D’INSCRIPTION"}
                 </button>
               </div>
             </form>
