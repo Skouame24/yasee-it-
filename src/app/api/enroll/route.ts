@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
@@ -23,21 +23,6 @@ export async function POST(request: Request) {
       );
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      console.error("RESEND_API_KEY is not defined in environment variables.");
-      return NextResponse.json(
-        {
-          error:
-            "Le service d'envoi d'e-mails n'est pas encore configuré (clé API manquante).",
-        },
-        { status: 500 }
-      );
-    }
-
-    const resend = new Resend(apiKey);
-    const fromAddress =
-      process.env.RESEND_FROM_EMAIL || "YASEE IT <onboarding@resend.dev>";
     const notificationRecipient =
       process.env.NOTIFICATION_EMAIL || "info@yasee-it.ci";
 
@@ -339,47 +324,58 @@ export async function POST(request: Request) {
     `;
 
     // ─────────────────────────────────────────────────────────────────────────────
-    // 3. ENVOIS VIA LE SDK RESEND
+    // 3. ENVOI VIA NODEMAILER (INFOMANIAK SMTP)
     // ─────────────────────────────────────────────────────────────────────────────
-    
-    // Envoi 1 : Notification principale à l'équipe YASEE IT
-    const { data: adminData, error: adminError } = await resend.emails.send({
-      from: fromAddress,
-      to: [notificationRecipient],
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error("Configuration SMTP manquante dans les variables d'environnement.");
+      return NextResponse.json(
+        { error: "Configuration SMTP manquante sur le serveur." },
+        { status: 500 }
+      );
+    }
+
+    const smtpPort = Number(process.env.SMTP_PORT) || 465;
+    const smtpSecure = process.env.SMTP_SECURE === "true" || smtpPort === 465;
+
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: smtpPort,
+      secure: smtpSecure,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
+    const smtpFrom =
+      process.env.SMTP_FROM || `"YASEE IT" <${process.env.SMTP_USER}>`;
+
+    // Envoi de la fiche à l'équipe YASEE IT
+    await transporter.sendMail({
+      from: smtpFrom,
+      to: notificationRecipient,
       replyTo: email,
       subject: adminSubject,
       html: adminHtml,
     });
 
-    if (adminError) {
-      console.error("Resend admin email error:", adminError);
-      return NextResponse.json(
-        { error: adminError.message || "Erreur lors de l'envoi de la notification." },
-        { status: 500 }
-      );
-    }
-
-    // Envoi 2 : Accusé de réception envoyé au candidat (tenté gracieusement)
-    // En mode test (onboarding@resend.dev), Resend bloquera si l'email candidat != compte Resend.
-    // En production avec domaine vérifié, il partira directement vers le candidat.
+    // Envoi de l'accusé de réception au candidat
     try {
-      await resend.emails.send({
-        from: fromAddress,
-        to: [email],
+      await transporter.sendMail({
+        from: smtpFrom,
+        to: email,
         subject: candidateSubject,
         html: candidateHtml,
       });
-    } catch (candidateErr) {
-      // On consigne l'erreur éventuelle sans bloquer l'inscription
-      console.warn("L'envoi de l'accusé de réception au candidat n'a pas pu aboutir (limitation mode test ou domaine non vérifié):", candidateErr);
+    } catch (clientErr) {
+      console.warn("Échec de l'envoi de l'accusé au candidat:", clientErr);
     }
 
-    return NextResponse.json({ success: true, data: adminData }, { status: 200 });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (err: unknown) {
     console.error("Erreur inattendue de l'API /api/enroll:", err);
-    return NextResponse.json(
-      { error: "Une erreur réseau ou serveur inattendue est survenue." },
-      { status: 500 }
-    );
+    const errorMsg =
+      err instanceof Error ? err.message : "Erreur inattendue du serveur.";
+    return NextResponse.json({ error: errorMsg }, { status: 500 });
   }
 }
